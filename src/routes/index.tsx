@@ -464,9 +464,14 @@ function Hero() {
       <div className="relative mx-auto grid min-h-[480px] max-w-7xl content-center px-4 pt-10 pb-[55%] sm:pb-[50%] lg:min-h-[520px] lg:grid-cols-2 lg:gap-12 lg:py-16 lg:pb-16">
         <div className="relative z-10 max-w-xl">
           <h1 className="text-3xl font-bold leading-tight text-brand-dark sm:text-4xl lg:text-[52px] lg:leading-[1.05]">
-            Votre situation,<br />
-            <span className="text-brand-dark/90">Une mutuelle santé<br />sur mesure.</span>
+            Assurance santé &amp; mutuelle<br />
+            <span className="text-brand-dark/90">sur mesure en France.</span>
           </h1>
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground/70 sm:text-base" data-speakable>
+            NEOASSUR, courtier expert en <strong>assurance santé</strong>, <strong>mutuelle santé</strong> et
+            <strong> complémentaire santé</strong>. Comparez +25 assureurs et trouvez la meilleure
+            <strong> assurance mutuelle santé</strong> adaptée à votre profil — devis gratuit en 2 minutes.
+          </p>
           <div className="mt-6 flex flex-wrap items-start gap-x-8 gap-y-3 lg:mt-8">
             <HeroPoint icon={<HelpCircle className="size-5 text-brand-blue" />} text={["DES CONSEILLERS EXPERTS", "À VOTRE ÉCOUTE"]} />
             <HeroPoint icon={<User className="size-5 text-brand-blue" />} text={["UN ACCOMPAGNEMENT", "PERSONNALISÉ"]} />
