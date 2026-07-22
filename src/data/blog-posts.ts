@@ -30,6 +30,12 @@ import blogCoutMutuelle70 from "@/assets/blog-cout-mutuelle-70-ans.jpg";
 import blogSeniorPasChere from "@/assets/blog-mutuelle-senior-pas-chere.jpg";
 import blogMeilleurComparateur from "@/assets/blog-meilleur-comparateur-senior.jpg";
 import blogQuelleMutuelle2026 from "@/assets/blog-quelle-mutuelle-2026.jpg";
+import blogBebeEnfant from "@/assets/blog-bebe-enfant.jpg";
+import blogJeuneCouple from "@/assets/blog-jeune-couple.jpg";
+import blogAutoEntrepreneur from "@/assets/blog-auto-entrepreneur.jpg";
+import blogFamilleNombreuse from "@/assets/blog-famille-nombreuse.jpg";
+import blogFrontalier from "@/assets/blog-frontalier.jpg";
+import blog80Ans from "@/assets/blog-80-ans.jpg";
 
 
 export type BlogPost = {
@@ -759,6 +765,209 @@ export const BLOG_POSTS: BlogPost[] = [
     faq: [
       { question: "Quelle est la meilleure mutuelle santé en 2026 ?", answer: "Il n'y a pas de « meilleure » mutuelle universelle : le meilleur contrat est celui qui correspond à votre profil, vos besoins et votre budget. Un comparateur permet de l'identifier en 2 min." },
       { question: "Peut-on cumuler la Sécu et deux mutuelles ?", answer: "Oui, on peut avoir une mutuelle principale et une surcomplémentaire pour renforcer certains postes (optique, dentaire, hospitalisation)." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-bebe-enfant",
+    title: "Mutuelle santé bébé et enfant : quelle couverture choisir en 2026 ?",
+    description:
+      "Guide 2026 pour choisir la meilleure mutuelle santé pour votre bébé ou votre enfant : garanties optique, orthodontie, vaccins non remboursés, hospitalisation.",
+    image: blogBebeEnfant,
+    category: "Famille",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-14",
+    readingTime: "6 min",
+    keywords: [
+      "mutuelle santé bébé",
+      "mutuelle santé enfant",
+      "mutuelle enfant pas chère",
+      "mutuelle orthodontie enfant",
+      "mutuelle vaccins bébé",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-sante-famille",
+      label: "Comparer les mutuelles famille",
+      description: "Trouvez la mutuelle famille qui protège vos enfants au meilleur tarif.",
+    },
+    content: [
+      { paragraph: "Bébé arrive ou vos enfants grandissent : leurs besoins de santé évoluent vite. Une mutuelle adaptée évite des restes à charge importants sur les postes clés de l'enfance." },
+      { heading: "Les postes prioritaires pour un enfant", paragraph: "Vaccins non remboursés (rotavirus, méningite B), consultations pédiatre en dépassement, orthodontie (2 000 à 6 000 € par enfant), lunettes cassées ou perdues, hospitalisation (amygdales, végétations)." },
+      { heading: "Rattachement à la mutuelle des parents ou contrat dédié ?", paragraph: "Dans 90 % des cas, rattacher l'enfant à la mutuelle famille est plus économique. Vérifiez toutefois que le contrat couvre bien l'orthodontie non remboursée et l'optique enfant." },
+      { heading: "La gratuité à partir du 3e enfant", paragraph: "Plusieurs de nos assureurs partenaires offrent la gratuité totale à partir du 3e enfant rattaché, ce qui peut représenter 400 à 700 €/an d'économies pour une famille nombreuse." },
+      { heading: "Nos conseils NEOASSUR", paragraph: "Choisissez un contrat sans questionnaire médical pour l'enfant, avec forfait maternité si un autre bébé est prévu, et vérifiez la couverture téléconsultation pédiatrique 24/7 — devenue indispensable." },
+    ],
+    faq: [
+      { question: "À quel âge souscrire une mutuelle pour bébé ?", answer: "Dès la naissance : votre enfant est rattaché à la Sécurité sociale d'un parent, mais il doit aussi être ajouté à la mutuelle famille dans les 30 jours suivant sa naissance." },
+      { question: "La mutuelle rembourse-t-elle les vaccins non obligatoires ?", answer: "Oui, les bonnes mutuelles enfant prennent en charge un forfait annuel « vaccins non remboursés » (rotavirus, méningite B) jusqu'à 100–150 €/an." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-jeune-couple",
+    title: "Mutuelle santé pour jeune couple : comment bien s'assurer à deux",
+    description:
+      "Vous êtes en couple, entre 25 et 35 ans ? Découvrez comment choisir une mutuelle à deux, avec ou sans projet bébé, et économiser jusqu'à 300 €/an.",
+    image: blogJeuneCouple,
+    category: "Jeune actif",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-15",
+    readingTime: "5 min",
+    keywords: [
+      "mutuelle jeune couple",
+      "mutuelle santé couple",
+      "mutuelle jeune actif",
+      "mutuelle 25 ans",
+      "mutuelle 30 ans",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-sante",
+      label: "Comparer les mutuelles santé",
+      description: "Trouvez la mutuelle qui couvre votre couple au meilleur tarif.",
+    },
+    content: [
+      { paragraph: "Emménager à deux, se pacser, se marier, envisager un enfant : c'est le bon moment pour repenser sa mutuelle. Deux contrats individuels coûtent souvent plus cher qu'un seul contrat couple bien choisi." },
+      { heading: "Un seul contrat ou deux ?", paragraph: "Un contrat couple offre des tarifs dégressifs (le 2e adulte est souvent 15 à 25 % moins cher). Mais si l'un de vous a des besoins très différents (spécialiste, dentaire), deux contrats individuels ciblés peuvent revenir moins cher." },
+      { heading: "Anticiper un projet bébé", paragraph: "Choisissez un contrat avec forfait maternité (300 à 800 €), suivi PMA, chambre particulière et sans délai de carence sur la maternité. Souscrire avant la conception évite les mauvaises surprises." },
+      { heading: "Les postes à renforcer entre 25 et 35 ans", paragraph: "Optique (30 % des jeunes actifs portent des lunettes), dentaire (une couronne = 800 €), hospitalisation ambulatoire, ostéopathie, contraception non remboursée." },
+      { heading: "Le prix moyen pour un jeune couple en 2026", paragraph: "Entre 45 et 90 €/mois pour un couple sans enfant avec une bonne couverture. Comparer permet d'économiser en moyenne 300 €/an sans baisser les garanties." },
+    ],
+    faq: [
+      { question: "Faut-il un contrat couple ou deux contrats individuels ?", answer: "Un contrat couple est généralement 15 à 25 % moins cher, sauf si vos besoins de santé sont très différents." },
+      { question: "Quand ajouter le futur bébé à la mutuelle ?", answer: "Dès sa naissance, dans un délai maximum de 30 jours pour bénéficier d'une prise en charge rétroactive." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-auto-entrepreneur",
+    title: "Mutuelle santé auto-entrepreneur : loi Madelin, prix et meilleures offres 2026",
+    description:
+      "Auto-entrepreneur, freelance ou micro-entreprise : découvrez quelle mutuelle choisir, si vous avez droit à la loi Madelin et comment économiser jusqu'à 40%.",
+    image: blogAutoEntrepreneur,
+    category: "Indépendant",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-16",
+    readingTime: "6 min",
+    keywords: [
+      "mutuelle auto-entrepreneur",
+      "mutuelle freelance",
+      "mutuelle micro-entreprise",
+      "mutuelle Madelin",
+      "mutuelle TNS",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-sante-independant",
+      label: "Comparer les mutuelles indépendant",
+      description: "Trouvez la mutuelle TNS Madelin adaptée à votre activité.",
+    },
+    content: [
+      { paragraph: "L'auto-entrepreneur ne bénéficie pas de mutuelle d'entreprise : c'est à vous de souscrire, à 100 % de votre poche. D'où l'importance de bien comparer." },
+      { heading: "Loi Madelin : qui y a droit ?", paragraph: "Les auto-entrepreneurs relevant du régime réel peuvent déduire fiscalement leurs cotisations mutuelle grâce à la loi Madelin. Les micro-entrepreneurs au régime micro-BIC/BNC n'ont pas cet avantage (abattement forfaitaire déjà appliqué)." },
+      { heading: "Les garanties incontournables pour un indépendant", paragraph: "Arrêt de travail (la Sécu vous verse peu), hospitalisation renforcée, dentaire, optique, téléconsultation illimitée pour éviter les jours d'arrêt, et prévoyance décès/invalidité pour protéger vos proches." },
+      { heading: "Le prix moyen en 2026", paragraph: "De 35 €/mois (jeune indépendant, entrée de gamme) à 130 €/mois (indépendant +50 ans, couverture premium). Comptez 55 à 75 €/mois pour un bon équilibre garanties/prix." },
+      { heading: "Nos conseils NEOASSUR", paragraph: "Privilégiez un contrat sans délai de carence sur l'hospitalisation (vous ne pouvez pas vous permettre d'attendre 3 mois), avec option Madelin si vous êtes au régime réel et couplage prévoyance à tarif préférentiel." },
+    ],
+    faq: [
+      { question: "Un auto-entrepreneur peut-il déduire sa mutuelle ?", answer: "Seuls les auto-entrepreneurs au régime réel simplifié peuvent déduire leur mutuelle Madelin. Au régime micro, l'abattement forfaitaire remplace toutes les déductions." },
+      { question: "Faut-il aussi une prévoyance en auto-entreprise ?", answer: "Fortement recommandé : la Sécu verse peu en cas d'arrêt maladie (55 €/j au maximum), ce qui ne couvre ni les charges ni le train de vie." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-famille-nombreuse",
+    title: "Mutuelle famille nombreuse : gratuité dès le 3e enfant et meilleures offres 2026",
+    description:
+      "Famille nombreuse (3 enfants et plus) : découvrez les mutuelles qui offrent la gratuité des enfants, jusqu'à 700 €/an d'économies. Comparatif 2026.",
+    image: blogFamilleNombreuse,
+    category: "Famille",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-17",
+    readingTime: "6 min",
+    keywords: [
+      "mutuelle famille nombreuse",
+      "mutuelle 3 enfants",
+      "mutuelle gratuité enfant",
+      "mutuelle famille pas chère",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-sante-famille",
+      label: "Comparer les mutuelles famille",
+      description: "Trouvez la mutuelle famille nombreuse qui protège tout le monde au meilleur prix.",
+    },
+    content: [
+      { paragraph: "Avec 3 enfants ou plus, votre budget santé peut vite exploser. Bonne nouvelle : plusieurs mutuelles offrent la gratuité totale à partir du 3e enfant rattaché." },
+      { heading: "La gratuité 3e enfant : comment ça marche", paragraph: "Chez plusieurs de nos partenaires (Neoliane, April, SPVIE…), tout enfant rattaché à partir du 3e est couvert à 0 €, avec les mêmes garanties que ses aînés. Économie moyenne : 400 à 700 €/an." },
+      { heading: "Les postes à ne pas négliger", paragraph: "Orthodontie (2 000 à 6 000 €/enfant), optique enfants (verres cassés), pédiatre en dépassement, forfait maternité si nouveau bébé prévu, hospitalisation (chambre particulière pour rester avec l'enfant)." },
+      { heading: "Combien coûte une mutuelle famille nombreuse en 2026 ?", paragraph: "Entre 110 et 180 €/mois pour un couple avec 3 enfants, selon le niveau de garantie. La gratuité 3e enfant ramène souvent le budget au niveau d'une famille avec 2 enfants." },
+      { heading: "Nos conseils NEOASSUR", paragraph: "Vérifiez que la gratuité est bien totale (et non partielle), qu'elle s'applique aux enfants majeurs étudiants rattachés (jusqu'à 26 ans), et que la couverture orthodontie est plafonnée à minimum 800 €/an/enfant." },
+    ],
+    faq: [
+      { question: "À partir de combien d'enfants ai-je droit à la gratuité ?", answer: "Généralement à partir du 3e enfant rattaché au contrat. Certains assureurs offrent aussi la gratuité du 4e et suivants." },
+      { question: "La gratuité s'applique-t-elle à l'étudiant majeur ?", answer: "Oui, tant qu'il est rattaché au foyer fiscal et étudiant (jusqu'à 26 ans dans la plupart des contrats)." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-frontalier",
+    title: "Mutuelle santé frontalier Suisse, Luxembourg, Belgique : quel contrat choisir ?",
+    description:
+      "Frontalier travaillant en Suisse, au Luxembourg ou en Belgique : découvrez les mutuelles qui couvrent des deux côtés de la frontière, LAMal, CMU frontalier.",
+    image: blogFrontalier,
+    category: "Expatrié",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-18",
+    readingTime: "6 min",
+    keywords: [
+      "mutuelle frontalier",
+      "mutuelle frontalier Suisse",
+      "mutuelle frontalier Luxembourg",
+      "LAMal frontalier",
+      "CMU frontalier",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-sante-expatrie",
+      label: "Comparer les mutuelles frontalier & expatrié",
+      description: "Trouvez la mutuelle adaptée à votre statut de travailleur frontalier.",
+    },
+    content: [
+      { paragraph: "Vous vivez en France et travaillez en Suisse, au Luxembourg ou en Belgique ? Votre couverture santé dépend de votre choix : régime local, CMU frontalier, ou assurance privée." },
+      { heading: "Frontalier Suisse : droit d'option LAMal / CMU", paragraph: "Vous avez 3 mois pour choisir entre la LAMal suisse (obligatoire, chère, très couvrante) et la CMU frontalier française (moins chère, remboursements français). L'option est en général irrévocable." },
+      { heading: "Frontalier Luxembourg / Belgique", paragraph: "Vous êtes affilié à la Sécurité sociale du pays d'emploi, avec droit aux soins des deux côtés de la frontière via la carte européenne (CEAM). Une mutuelle française reste indispensable pour couvrir les restes à charge." },
+      { heading: "Les garanties spécifiques à viser", paragraph: "Couverture des soins en Suisse (souvent 2 à 3 × plus chers), tiers payant chez les médecins français, rapatriement, prise en charge des dépassements en clinique privée, hospitalisation transfrontalière." },
+      { heading: "Combien coûte une mutuelle frontalier en 2026 ?", paragraph: "De 45 €/mois (frontalier Belgique célibataire) à 220 €/mois (famille frontalier Suisse avec enfants) selon le pays d'emploi et le niveau de couverture." },
+    ],
+    faq: [
+      { question: "Puis-je garder ma mutuelle française en tant que frontalier ?", answer: "Oui, une mutuelle française reste recommandée pour couvrir vos soins en France (visites au médecin traitant, hospitalisation en France, dentaire, optique)." },
+      { question: "La CMU frontalier remplace-t-elle la mutuelle ?", answer: "Non, la CMU frontalier est l'équivalent de la Sécurité sociale : elle rembourse aux taux français. Une mutuelle complémentaire reste utile." },
+    ],
+  },
+  {
+    slug: "mutuelle-sante-80-ans",
+    title: "Mutuelle santé après 80 ans : garanties, tarifs et comparatif 2026",
+    description:
+      "Souscrire une mutuelle santé à 80 ans ou plus : quelles garanties privilégier (hospitalisation, audio, dentaire), quels tarifs et comment éviter le questionnaire médical.",
+    image: blog80Ans,
+    category: "Senior",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-19",
+    readingTime: "7 min",
+    keywords: [
+      "mutuelle santé 80 ans",
+      "mutuelle senior 80 ans",
+      "mutuelle personnes âgées",
+      "mutuelle sans limite d'âge",
+      "mutuelle sans questionnaire médical",
+    ],
+    relatedLanding: {
+      to: "/mutuelle-senior-70-ans",
+      label: "Comparer les mutuelles senior",
+      description: "Trouvez la mutuelle senior sans limite d'âge adaptée après 80 ans.",
+    },
+    content: [
+      { paragraph: "Après 80 ans, la mutuelle devient essentielle : les restes à charge en hospitalisation, dentaire, audioprothèse et optique peuvent atteindre plusieurs milliers d'euros par an." },
+      { heading: "Peut-on souscrire une mutuelle à 80, 85 ou 90 ans ?", paragraph: "Oui. Plusieurs de nos partenaires acceptent la souscription sans limite d'âge, sans questionnaire médical et sans délai de carence sur les postes courants — même après 85 ans." },
+      { heading: "Les postes à renforcer en priorité", paragraph: "Hospitalisation (chambre particulière : 80 à 120 €/jour), audioprothèse (jusqu'à 1 500 €/oreille non remboursés), dentaire (prothèses, implants), optique premium, et transport sanitaire." },
+      { heading: "Combien coûte une mutuelle après 80 ans en 2026 ?", paragraph: "Entre 90 et 220 €/mois selon le niveau de garantie. Comparer permet d'économiser 25 à 40 % sans baisser la couverture — jusqu'à 800 €/an." },
+      { heading: "Nos conseils NEOASSUR", paragraph: "Privilégiez un contrat viager (impossible à résilier par l'assureur), sans questionnaire médical, avec téléassistance incluse, et service de conseiller dédié qui vous accompagne dans vos démarches de remboursement." },
+    ],
+    faq: [
+      { question: "Peut-on changer de mutuelle à 85 ans ?", answer: "Oui, la résiliation infra-annuelle s'applique après 1 an d'ancienneté, quel que soit votre âge. Vous pouvez donc changer sans frais ni justificatif." },
+      { question: "L'assureur peut-il résilier une mutuelle senior ?", answer: "Non, un contrat mutuelle santé individuel senior ne peut pas être résilié unilatéralement par l'assureur (hors non-paiement des cotisations). C'est un contrat viager." },
     ],
   },
 ];
