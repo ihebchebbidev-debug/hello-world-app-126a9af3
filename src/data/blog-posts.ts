@@ -30,6 +30,12 @@ import blogCoutMutuelle70 from "@/assets/blog-cout-mutuelle-70-ans.jpg";
 import blogSeniorPasChere from "@/assets/blog-mutuelle-senior-pas-chere.jpg";
 import blogMeilleurComparateur from "@/assets/blog-meilleur-comparateur-senior.jpg";
 import blogQuelleMutuelle2026 from "@/assets/blog-quelle-mutuelle-2026.jpg";
+import blogBebeEnfant from "@/assets/blog-bebe-enfant.jpg";
+import blogJeuneCouple from "@/assets/blog-jeune-couple.jpg";
+import blogAutoEntrepreneur from "@/assets/blog-auto-entrepreneur.jpg";
+import blogFamilleNombreuse from "@/assets/blog-famille-nombreuse.jpg";
+import blogFrontalier from "@/assets/blog-frontalier.jpg";
+import blog80Ans from "@/assets/blog-80-ans.jpg";
 
 
 export type BlogPost = {
