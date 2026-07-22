@@ -58,11 +58,11 @@ export const Route = createFileRoute("/")({
       { name: "geo.placename", content: "Paris" },
       { name: "language", content: "French" },
       { httpEquiv: "content-language", content: "fr-FR" },
-      { property: "og:title", content: "NEOASSUR — Mutuelle santé, assurance emprunteur & obsèques" },
+      { property: "og:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
       {
         property: "og:description",
         content:
-          "Devis gratuit en 2 minutes. Comparez +25 mutuelles santé et économisez jusqu'à 40%. Famille, senior, étudiant, indépendant, entreprise.",
+          "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%. Famille, senior, étudiant, indépendant, entreprise.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neo-assur.fr/" },
