@@ -39,16 +39,16 @@ const HERO_MOBILE_IMAGES = [heroMobile1, heroMobile2, heroMobile3];
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mutuelle Santé, Assurance Emprunteur & Obsèques 2026 — NEOASSUR" },
+      { title: "Assurance santé & mutuelle santé en France — Devis gratuit | NEOASSUR" },
       {
         name: "description",
         content:
-          "NEOASSUR, courtier en assurance : comparez +25 mutuelles santé, assurance emprunteur (loi Lemoine) et prévoyance obsèques. Devis gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise, fonctionnaire, expatrié.",
+          "Assurance santé, mutuelle santé et complémentaire santé en France : comparez +25 assureurs avec NEOASSUR. Devis assurance mutuelle santé gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise.",
       },
       {
         name: "keywords",
         content:
-          "assurance, mutuelle santé, complémentaire santé, comparateur assurance, comparateur mutuelle santé, devis assurance, devis mutuelle santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, changer assurance emprunteur, assurance prêt immobilier, assurance obsèques, contrat obsèques, capital décès, assurance décès, prévoyance, prévoyance senior, courtier assurance, NEOASSUR",
+          "assurance santé, assurance santé France, assurance de santé, assurance mutuelle santé, mutuelle assurance santé, mutuelle santé assurance, mutuelle santé, mutuelle de santé, mutuelle, complémentaire santé, assurance, comparateur assurance santé, comparateur mutuelle santé, devis assurance santé, devis mutuelle santé, meilleure assurance santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, assurance obsèques, contrat obsèques, courtier assurance, NEOASSUR",
       },
       { name: "author", content: "NEOASSUR" },
       { name: "publisher", content: "NEOASSUR" },
@@ -58,11 +58,11 @@ export const Route = createFileRoute("/")({
       { name: "geo.placename", content: "Paris" },
       { name: "language", content: "French" },
       { httpEquiv: "content-language", content: "fr-FR" },
-      { property: "og:title", content: "NEOASSUR — Mutuelle santé, assurance emprunteur & obsèques" },
+      { property: "og:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
       {
         property: "og:description",
         content:
-          "Devis gratuit en 2 minutes. Comparez +25 mutuelles santé et économisez jusqu'à 40%. Famille, senior, étudiant, indépendant, entreprise.",
+          "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%. Famille, senior, étudiant, indépendant, entreprise.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neo-assur.fr/" },
@@ -73,10 +73,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et assurance" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NEOASSUR — Mutuelle santé au meilleur prix" },
+      { name: "twitter:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
       {
         name: "twitter:description",
-        content: "Devis gratuit en 2 minutes. Comparez +25 mutuelles santé et économisez jusqu'à 40%.",
+        content: "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%.",
       },
       { name: "twitter:image", content: ogDefault },
       { name: "twitter:site", content: "@neoassur" },
@@ -230,6 +230,16 @@ export const Route = createFileRoute("/")({
             {
               "@type": "FAQPage",
               mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Quelle est la différence entre assurance santé et mutuelle santé ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Aucune différence pratique : « assurance santé », « assurance mutuelle santé », « complémentaire santé » et « mutuelle santé » désignent le contrat qui complète les remboursements de la Sécurité sociale (Assurance Maladie). NEOASSUR compare +25 assureurs pour vous trouver la meilleure formule." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle est la meilleure assurance santé en France en 2026 ?",
+                  acceptedAnswer: { "@type": "Answer", text: "La meilleure assurance santé dépend de votre profil (âge, famille, besoins optique/dentaire/hospitalisation). Notre comparateur croise votre profil avec +25 assureurs partenaires (Neoliane, April, SPVIE, Assuréa, C2G, FMA…) et sort les 3 meilleures offres du marché français." },
+                },
                 {
                   "@type": "Question",
                   name: "Combien coûte un devis NEOASSUR ?",
@@ -464,9 +474,14 @@ function Hero() {
       <div className="relative mx-auto grid min-h-[480px] max-w-7xl content-center px-4 pt-10 pb-[55%] sm:pb-[50%] lg:min-h-[520px] lg:grid-cols-2 lg:gap-12 lg:py-16 lg:pb-16">
         <div className="relative z-10 max-w-xl">
           <h1 className="text-3xl font-bold leading-tight text-brand-dark sm:text-4xl lg:text-[52px] lg:leading-[1.05]">
-            Votre situation,<br />
-            <span className="text-brand-dark/90">Une mutuelle santé<br />sur mesure.</span>
+            Assurance santé &amp; mutuelle<br />
+            <span className="text-brand-dark/90">sur mesure en France.</span>
           </h1>
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground/70 sm:text-base" data-speakable>
+            NEOASSUR, courtier expert en <strong>assurance santé</strong>, <strong>mutuelle santé</strong> et
+            <strong> complémentaire santé</strong>. Comparez +25 assureurs et trouvez la meilleure
+            <strong> assurance mutuelle santé</strong> adaptée à votre profil — devis gratuit en 2 minutes.
+          </p>
           <div className="mt-6 flex flex-wrap items-start gap-x-8 gap-y-3 lg:mt-8">
             <HeroPoint icon={<HelpCircle className="size-5 text-brand-blue" />} text={["DES CONSEILLERS EXPERTS", "À VOTRE ÉCOUTE"]} />
             <HeroPoint icon={<User className="size-5 text-brand-blue" />} text={["UN ACCOMPAGNEMENT", "PERSONNALISÉ"]} />
