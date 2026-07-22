@@ -39,20 +39,26 @@ const HERO_MOBILE_IMAGES = [heroMobile1, heroMobile2, heroMobile3];
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mutuelle Santé 2026 : Comparez +25 offres — NEOASSUR" },
+      { title: "Mutuelle Santé, Assurance Emprunteur & Obsèques 2026 — NEOASSUR" },
       {
         name: "description",
         content:
-          "Comparez +25 mutuelles santé partenaires et économisez jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise, fonctionnaire : la meilleure complémentaire santé au meilleur prix. Devis gratuit en 2 min avec un conseiller NEOASSUR.",
+          "NEOASSUR, courtier en assurance : comparez +25 mutuelles santé, assurance emprunteur (loi Lemoine) et prévoyance obsèques. Devis gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise, fonctionnaire, expatrié.",
       },
       {
         name: "keywords",
         content:
-          "mutuelle santé, complémentaire santé, meilleure mutuelle santé, mutuelle santé pas chère, comparateur mutuelle santé, devis mutuelle santé, mutuelle santé en ligne, souscrire mutuelle santé, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle santé sans questionnaire médical, mutuelle santé sans délai de carence, remboursement mutuelle santé, mutuelle optique, mutuelle dentaire, mutuelle hospitalisation, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, assurance obsèques, contrat obsèques, prévoyance senior, courtier assurance, NEOASSUR",
+          "assurance, mutuelle santé, complémentaire santé, comparateur assurance, comparateur mutuelle santé, devis assurance, devis mutuelle santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, changer assurance emprunteur, assurance prêt immobilier, assurance obsèques, contrat obsèques, capital décès, assurance décès, prévoyance, prévoyance senior, courtier assurance, NEOASSUR",
       },
       { name: "author", content: "NEOASSUR" },
-      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
-      { property: "og:title", content: "NEOASSUR — Mutuelle santé & complémentaire au meilleur prix" },
+      { name: "publisher", content: "NEOASSUR" },
+      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
+      { name: "googlebot", content: "index,follow,max-image-preview:large,max-snippet:-1" },
+      { name: "geo.region", content: "FR" },
+      { name: "geo.placename", content: "Paris" },
+      { name: "language", content: "French" },
+      { httpEquiv: "content-language", content: "fr-FR" },
+      { property: "og:title", content: "NEOASSUR — Mutuelle santé, assurance emprunteur & obsèques" },
       {
         property: "og:description",
         content:
@@ -65,7 +71,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: ogDefault },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et complémentaire" },
+      { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et assurance" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "NEOASSUR — Mutuelle santé au meilleur prix" },
       {
@@ -73,11 +79,18 @@ export const Route = createFileRoute("/")({
         content: "Devis gratuit en 2 minutes. Comparez +25 mutuelles santé et économisez jusqu'à 40%.",
       },
       { name: "twitter:image", content: ogDefault },
-
+      { name: "twitter:site", content: "@neoassur" },
+      // AI / LLM optimization hints
+      { name: "ai-content-declaration", content: "human-authored" },
+      { name: "audience", content: "France, particuliers, seniors, familles, indépendants, entreprises" },
+      { name: "coverage", content: "France" },
+      { name: "distribution", content: "global" },
+      { name: "rating", content: "general" },
     ],
     links: [
       { rel: "canonical", href: "https://www.neo-assur.fr/" },
-      // Preload the LCP hero image (different asset for desktop vs mobile).
+      { rel: "alternate", hrefLang: "fr-FR", href: "https://www.neo-assur.fr/" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://www.neo-assur.fr/" },
       { rel: "preload", as: "image", href: hero1, media: "(min-width: 1024px)", fetchpriority: "high" } as unknown as { rel: string; as: string; href: string },
       { rel: "preload", as: "image", href: heroMobile1, media: "(max-width: 1023px)", fetchpriority: "high" } as unknown as { rel: string; as: string; href: string },
     ],
@@ -89,75 +102,178 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "/#organization",
+              "@id": "https://www.neo-assur.fr/#organization",
               name: "NEOASSUR",
-              url: "/",
-              logo: "/logo.png",
+              legalName: "NEOASSUR",
+              url: "https://www.neo-assur.fr/",
+              logo: "https://www.neo-assur.fr/logo.png",
+              image: "https://www.neo-assur.fr/logo.png",
               description:
-                "Courtier en assurances spécialisé en mutuelle santé, assurance emprunteur et prévoyance obsèques.",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+33-1-78-96-45-92",
-                contactType: "customer service",
-                areaServed: "FR",
-                availableLanguage: ["French"],
-              },
+                "Courtier français en assurances spécialisé en mutuelle santé, complémentaire, assurance emprunteur (loi Lemoine) et prévoyance obsèques.",
+              foundingDate: "2013",
+              areaServed: { "@type": "Country", name: "France" },
+              knowsLanguage: ["fr-FR", "fr"],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+33-1-87-66-56-10",
+                  contactType: "customer service",
+                  areaServed: "FR",
+                  availableLanguage: ["French"],
+                },
+              ],
+              sameAs: [
+                "https://www.facebook.com/neoassur",
+                "https://www.linkedin.com/company/neoassur",
+                "https://twitter.com/neoassur",
+              ],
             },
             {
               "@type": "WebSite",
-              "@id": "/#website",
-              url: "/",
+              "@id": "https://www.neo-assur.fr/#website",
+              url: "https://www.neo-assur.fr/",
               name: "NEOASSUR",
               inLanguage: "fr-FR",
-              publisher: { "@id": "/#organization" },
+              publisher: { "@id": "https://www.neo-assur.fr/#organization" },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://www.neo-assur.fr/blog?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
             },
             {
               "@type": "InsuranceAgency",
+              "@id": "https://www.neo-assur.fr/#agency",
               name: "NEOASSUR",
-              url: "/",
-              image: "/logo.png",
-              telephone: "+33-1-78-96-45-92",
+              url: "https://www.neo-assur.fr/",
+              image: "https://www.neo-assur.fr/logo.png",
+              telephone: "+33-1-87-66-56-10",
+              email: "contact@neo-assur.fr",
               priceRange: "€€",
-              areaServed: "FR",
+              areaServed: { "@type": "Country", name: "France" },
+              currenciesAccepted: "EUR",
+              paymentAccepted: "Prélèvement SEPA, Carte bancaire",
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "09:00",
+                  closes: "19:00",
+                },
+              ],
+              makesOffer: [
+                { "@type": "Offer", name: "Mutuelle santé", url: "https://www.neo-assur.fr/mutuelle-sante" },
+                { "@type": "Offer", name: "Assurance emprunteur", url: "https://www.neo-assur.fr/assurance-emprunteur" },
+                { "@type": "Offer", name: "Assurance obsèques", url: "https://www.neo-assur.fr/assurance-obseques" },
+              ],
             },
             {
               "@type": "WebPage",
-              "@id": "/#webpage",
+              "@id": "https://www.neo-assur.fr/#webpage",
               url: "https://www.neo-assur.fr/",
-              name: "Mutuelle Santé 2026 : Comparez +25 offres — NEOASSUR",
+              name: "Mutuelle Santé, Assurance Emprunteur & Obsèques 2026 — NEOASSUR",
               inLanguage: "fr-FR",
-              isPartOf: { "@id": "/#website" },
+              isPartOf: { "@id": "https://www.neo-assur.fr/#website" },
+              about: { "@id": "https://www.neo-assur.fr/#organization" },
               datePublished: "2024-01-15",
               dateModified: "2026-01-20",
-              about: { "@id": "/#organization" },
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1", "h2", "[data-speakable]"],
+              },
             },
-
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.neo-assur.fr/" },
+                { "@type": "ListItem", position: 2, name: "Mutuelle santé", item: "https://www.neo-assur.fr/mutuelle-sante" },
+                { "@type": "ListItem", position: 3, name: "Assurance emprunteur", item: "https://www.neo-assur.fr/assurance-emprunteur" },
+                { "@type": "ListItem", position: 4, name: "Assurance obsèques", item: "https://www.neo-assur.fr/assurance-obseques" },
+              ],
+            },
+            {
+              "@type": "Service",
+              serviceType: "Courtage en assurance",
+              provider: { "@id": "https://www.neo-assur.fr/#organization" },
+              areaServed: { "@type": "Country", name: "France" },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Produits d'assurance NEOASSUR",
+                itemListElement: [
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mutuelle santé", url: "https://www.neo-assur.fr/mutuelle-sante" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Complémentaire santé", url: "https://www.neo-assur.fr/complementaire-sante" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Comparateur mutuelle santé", url: "https://www.neo-assur.fr/comparateur-mutuelle-sante" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Assurance emprunteur", url: "https://www.neo-assur.fr/assurance-emprunteur" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Loi Lemoine", url: "https://www.neo-assur.fr/loi-lemoine" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Assurance obsèques", url: "https://www.neo-assur.fr/assurance-obseques" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Prévoyance / assurance décès", url: "https://www.neo-assur.fr/assurance-deces" } },
+                ],
+              },
+            },
+            {
+              "@type": "HowTo",
+              name: "Comment obtenir un devis mutuelle santé gratuit en 2 minutes",
+              description:
+                "Procédure pour comparer +25 mutuelles santé avec NEOASSUR et souscrire au meilleur tarif.",
+              totalTime: "PT2M",
+              estimatedCost: { "@type": "MonetaryAmount", currency: "EUR", value: "0" },
+              step: [
+                { "@type": "HowToStep", position: 1, name: "Remplir le formulaire", text: "Indiquez votre âge, votre situation familiale et vos besoins de couverture (optique, dentaire, hospitalisation)." },
+                { "@type": "HowToStep", position: 2, name: "Comparer les offres", text: "Notre comparateur interroge +25 assureurs partenaires et sélectionne les meilleures formules." },
+                { "@type": "HowToStep", position: 3, name: "Échanger avec un conseiller", text: "Un conseiller NEOASSUR vous rappelle sous 24h pour affiner votre devis, sans engagement." },
+                { "@type": "HowToStep", position: 4, name: "Souscrire en ligne", text: "Signez votre contrat en ligne, sans questionnaire médical, avec couverture immédiate possible." },
+              ],
+            },
             {
               "@type": "FAQPage",
               mainEntity: [
                 {
                   "@type": "Question",
                   name: "Combien coûte un devis NEOASSUR ?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Le devis est 100 % gratuit et sans engagement. Vous l'obtenez en moins de 2 minutes en ligne ou par téléphone.",
-                  },
+                  acceptedAnswer: { "@type": "Answer", text: "Le devis est 100 % gratuit et sans engagement. Vous l'obtenez en moins de 2 minutes en ligne ou par téléphone au 01 87 66 56 10." },
                 },
                 {
                   "@type": "Question",
                   name: "Combien puis-je économiser sur ma mutuelle santé ?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Nos clients économisent en moyenne jusqu'à 40 % sur leur cotisation annuelle en comparant les offres de nos partenaires.",
-                  },
+                  acceptedAnswer: { "@type": "Answer", text: "Nos clients économisent en moyenne jusqu'à 40 % (soit environ 312 €/an) en comparant les offres de nos +25 assureurs partenaires." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Qu'est-ce qu'un courtier en assurance et pourquoi passer par NEOASSUR ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Un courtier est un intermédiaire indépendant qui compare pour vous les offres du marché. NEOASSUR est immatriculé à l'ORIAS et négocie des tarifs préférentiels auprès de +25 compagnies (Neoliane, April, SPVIE, Assuréa, C2G, FMA…)." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle est la meilleure mutuelle santé en 2026 ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Il n'existe pas de meilleure mutuelle universelle : le bon choix dépend de votre âge, de votre famille et de vos besoins (optique, dentaire, hospitalisation). Notre comparateur croise votre profil et sort les 3 meilleures formules du marché." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Combien coûte une mutuelle santé par mois ?",
+                  acceptedAnswer: { "@type": "Answer", text: "De 22 €/mois (jeune actif, entrée de gamme) à 180 €/mois (senior, formule renforcée). En moyenne 55 €/mois pour un adulte seul et 130 €/mois pour une famille de 4." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Puis-je changer de mutuelle santé à tout moment ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Oui, grâce à la résiliation infra-annuelle : après 1 an d'ancienneté, vous pouvez changer à tout moment, sans frais ni justificatif." },
                 },
                 {
                   "@type": "Question",
                   name: "Puis-je changer d'assurance emprunteur à tout moment ?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Oui, grâce à la loi Lemoine, vous pouvez résilier et changer votre assurance emprunteur à tout moment, sans frais.",
-                  },
+                  acceptedAnswer: { "@type": "Answer", text: "Oui, grâce à la loi Lemoine (2022), vous pouvez résilier et changer votre assurance emprunteur à tout moment, sans frais, et économiser jusqu'à 15 000 € sur la durée d'un prêt immobilier." },
+                },
+                {
+                  "@type": "Question",
+                  name: "À quoi sert une assurance obsèques ?",
+                  acceptedAnswer: { "@type": "Answer", text: "L'assurance obsèques garantit un capital (généralement entre 3 000 et 10 000 €) destiné à financer vos funérailles et protéger vos proches d'une charge financière et administrative." },
+                },
+                {
+                  "@type": "Question",
+                  name: "NEOASSUR est-il un assureur agréé ?",
+                  acceptedAnswer: { "@type": "Answer", text: "NEOASSUR est courtier en assurance immatriculé à l'ORIAS (Registre unique des intermédiaires en assurance), garantissant conformité, transparence et protection du consommateur." },
                 },
               ],
             },
