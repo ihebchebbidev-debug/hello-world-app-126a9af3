@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /leads
+Disallow: /visitors
+
+Sitemap: https://www.neo-assur.fr/sitemap.xml

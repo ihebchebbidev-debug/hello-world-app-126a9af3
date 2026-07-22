@@ -1,0 +1,621 @@
+import blogMutuelle from "@/assets/blog-mutuelle-sante.jpg";
+import blogEmprunteur from "@/assets/blog-emprunteur.jpg";
+import blogObseques from "@/assets/blog-obseques.jpg";
+import blogEconomies from "@/assets/blog-economies.jpg";
+import blogSenior from "@/assets/blog-senior.jpg";
+import blogFamille from "@/assets/blog-famille.jpg";
+import blogDentaire from "@/assets/blog-dentaire.jpg";
+import blogTns from "@/assets/blog-tns.jpg";
+import blogJeuneActif from "@/assets/blog-jeune-actif.jpg";
+import blogMaternite from "@/assets/blog-maternite.jpg";
+import blogHospitalisation from "@/assets/blog-hospitalisation.jpg";
+import blogAudio from "@/assets/blog-audio.jpg";
+import blogEtudiant from "@/assets/blog-etudiant.jpg";
+import blogExpat from "@/assets/blog-expat.jpg";
+import blogTeleconsultation from "@/assets/blog-teleconsultation.jpg";
+import blogMedecinesDouces from "@/assets/blog-medecines-douces.jpg";
+import blogResiliation from "@/assets/blog-resiliation.jpg";
+import blogComparateur from "@/assets/blog-comparateur.jpg";
+import blogFonctionnaire from "@/assets/blog-fonctionnaire.jpg";
+import blogEmprunteurRefus from "@/assets/blog-emprunteur-refus.jpg";
+import blogPrevoyanceArret from "@/assets/blog-prevoyance-arret.jpg";
+import blogDevis2min from "@/assets/blog-devis-2min.jpg";
+import blogAnimaux from "@/assets/blog-animaux.jpg";
+import blogCss from "@/assets/blog-css.jpg";
+import blogChomage from "@/assets/blog-chomage.jpg";
+import blogAssuranceVie from "@/assets/blog-assurance-vie.jpg";
+import blogOptique from "@/assets/blog-optique.jpg";
+import blogPrevoyanceDeces from "@/assets/blog-prevoyance-deces.jpg";
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  author: string;
+  date: string; // ISO
+  readingTime: string;
+  content: { heading?: string; paragraph: string }[];
+  keywords: string[];
+};
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "comment-choisir-mutuelle-sante",
+    title: "Comment choisir la meilleure mutuelle santé en 2026",
+    description:
+      "Guide complet pour comparer les mutuelles santé : garanties, remboursements, tarifs et conseils d'experts NEOASSUR pour faire le bon choix.",
+    image: blogMutuelle,
+    category: "Mutuelle santé",
+    author: "Équipe NEOASSUR",
+    date: "2026-05-12",
+    readingTime: "6 min",
+    keywords: ["mutuelle santé", "comparateur mutuelle", "complémentaire santé", "remboursement"],
+    content: [
+      {
+        paragraph:
+          "Choisir une mutuelle santé adaptée à vos besoins est essentiel pour limiter vos restes à charge et accéder aux meilleurs soins. Voici les critères clés à examiner avant de souscrire.",
+      },
+      {
+        heading: "Évaluez vos besoins réels",
+        paragraph:
+          "Avant tout, analysez votre profil : âge, situation familiale, fréquence des consultations, besoins en optique, dentaire ou hospitalisation. Une jeune personne en bonne santé n'aura pas les mêmes besoins qu'une famille avec enfants ou un senior.",
+      },
+      {
+        heading: "Comparez les niveaux de garanties",
+        paragraph:
+          "Les contrats sont généralement présentés sous forme de pourcentages du tarif de la Sécurité sociale ou en forfaits. Vérifiez les plafonds annuels pour l'optique, les dépassements d'honoraires et les médecines douces.",
+      },
+      {
+        heading: "Attention aux délais de carence",
+        paragraph:
+          "Certaines garanties (orthodontie, prothèses) ne s'appliquent qu'après plusieurs mois. Lisez bien les conditions générales pour éviter les mauvaises surprises.",
+      },
+      {
+        heading: "Faites jouer la concurrence",
+        paragraph:
+          "Un comparateur indépendant comme NEOASSUR vous permet de visualiser plusieurs devis en quelques minutes et d'économiser jusqu'à 40 % sur votre cotisation annuelle.",
+      },
+    ],
+  },
+  {
+    slug: "assurance-emprunteur-economisez",
+    title: "Assurance emprunteur : économisez jusqu'à 15 000 € sur votre prêt",
+    description:
+      "Avec la loi Lemoine, changer d'assurance emprunteur est désormais possible à tout moment. Découvrez comment réduire le coût de votre crédit immobilier.",
+    image: blogEmprunteur,
+    category: "Assurance emprunteur",
+    author: "Équipe NEOASSUR",
+    date: "2026-04-28",
+    readingTime: "5 min",
+    keywords: ["assurance emprunteur", "loi Lemoine", "crédit immobilier", "délégation assurance"],
+    content: [
+      {
+        paragraph:
+          "L'assurance emprunteur représente en moyenne un tiers du coût total d'un crédit immobilier. La bonne nouvelle : il est désormais possible d'en changer à tout moment.",
+      },
+      {
+        heading: "La loi Lemoine en pratique",
+        paragraph:
+          "Depuis 2022, vous pouvez résilier votre assurance emprunteur sans frais et sans attendre la date anniversaire. Une simple demande à votre banque suffit, avec un nouveau contrat offrant des garanties équivalentes.",
+      },
+      {
+        heading: "Des économies considérables",
+        paragraph:
+          "Pour un prêt de 200 000 € sur 20 ans, le gain moyen constaté par nos clients dépasse 12 000 €. Les emprunteurs jeunes et non-fumeurs peuvent même réaliser plus de 15 000 € d'économies.",
+      },
+      {
+        heading: "Comment changer simplement",
+        paragraph:
+          "Nos conseillers s'occupent de tout : étude de votre contrat actuel, recherche du meilleur taux, envoi à la banque et suivi du transfert. Le tout en moins de 30 jours.",
+      },
+    ],
+  },
+  {
+    slug: "assurance-obseques-proteger-proches",
+    title: "Assurance obsèques : pourquoi protéger vos proches dès aujourd'hui",
+    description:
+      "L'assurance obsèques permet d'anticiper les frais funéraires et de soulager vos proches. Découvrez les avantages d'un contrat prévoyance.",
+    image: blogObseques,
+    category: "Prévoyance",
+    author: "Équipe NEOASSUR",
+    date: "2026-04-10",
+    readingTime: "4 min",
+    keywords: ["assurance obsèques", "prévoyance", "frais funéraires", "contrat obsèques"],
+    content: [
+      {
+        paragraph:
+          "Le coût moyen d'obsèques en France dépasse 4 000 €. Une assurance obsèques permet d'anticiper ces frais et d'éviter un fardeau financier à vos proches dans un moment difficile.",
+      },
+      {
+        heading: "Deux formules au choix",
+        paragraph:
+          "Le contrat en capital verse une somme à vos bénéficiaires. Le contrat en prestations organise directement vos funérailles selon vos volontés.",
+      },
+      {
+        heading: "Souscrire jeune pour payer moins",
+        paragraph:
+          "Plus vous souscrivez tôt, plus votre cotisation mensuelle reste basse. À 50 ans, comptez environ 15 € par mois pour un capital de 5 000 €.",
+      },
+    ],
+  },
+  {
+    slug: "5-astuces-economiser-mutuelle",
+    title: "5 astuces pour réduire le coût de votre mutuelle santé",
+    description:
+      "Découvrez nos conseils concrets pour payer moins cher votre complémentaire santé sans sacrifier vos garanties essentielles.",
+    image: blogEconomies,
+    category: "Conseils",
+    author: "Équipe NEOASSUR",
+    date: "2026-03-22",
+    readingTime: "5 min",
+    keywords: ["économies mutuelle", "tarif mutuelle", "réduire cotisation"],
+    content: [
+      {
+        paragraph:
+          "Votre cotisation mutuelle pèse de plus en plus lourd ? Voici cinq leviers concrets pour la réduire sans perdre en couverture.",
+      },
+      { heading: "1. Adaptez vos garanties à votre profil", paragraph: "Inutile de payer pour des soins que vous n'utilisez jamais. Auditez votre contrat chaque année." },
+      { heading: "2. Comparez tous les ans", paragraph: "Le marché évolue vite. Un comparatif annuel permet souvent de gagner 20 à 30 %." },
+      { heading: "3. Profitez des offres entreprise", paragraph: "Si vous êtes salarié, la mutuelle obligatoire est cofinancée par votre employeur." },
+      { heading: "4. Misez sur la téléconsultation", paragraph: "De plus en plus de contrats l'incluent gratuitement et vous évitent des avances de frais." },
+      { heading: "5. Demandez un avis expert", paragraph: "Un conseiller NEOASSUR identifie en 10 minutes les économies possibles sur votre contrat." },
+    ],
+  },
+  {
+    slug: "mutuelle-senior-bien-choisir",
+    title: "Mutuelle senior : bien choisir après 60 ans",
+    description:
+      "Les besoins de santé évoluent avec l'âge. Découvrez les garanties indispensables d'une bonne mutuelle senior et nos conseils d'expert.",
+    image: blogSenior,
+    category: "Senior",
+    author: "Équipe NEOASSUR",
+    date: "2026-03-05",
+    readingTime: "6 min",
+    keywords: ["mutuelle senior", "mutuelle retraité", "santé 60 ans"],
+    content: [
+      {
+        paragraph:
+          "Après 60 ans, les dépenses de santé augmentent fortement. Choisir une mutuelle senior adaptée évite des restes à charge importants.",
+      },
+      { heading: "Les garanties prioritaires", paragraph: "Hospitalisation, dépassements d'honoraires, prothèses dentaires, audioprothèses et soins optiques sont les postes à surveiller." },
+      { heading: "Méfiez-vous des questionnaires médicaux", paragraph: "Privilégiez les contrats sans sélection médicale pour éviter les exclusions." },
+      { heading: "L'accompagnement compte", paragraph: "Aide à domicile, garde après hospitalisation, prévention : autant de services qui font la différence au quotidien." },
+    ],
+  },
+  {
+    slug: "mutuelle-famille-couverture-enfants",
+    title: "Mutuelle famille : la bonne couverture pour vos enfants",
+    description:
+      "Orthodontie, lunettes, vaccinations : nos conseils pour choisir une mutuelle famille qui couvre vraiment les besoins de vos enfants.",
+    image: blogFamille,
+    category: "Famille",
+    author: "Équipe NEOASSUR",
+    date: "2026-02-18",
+    readingTime: "5 min",
+    keywords: ["mutuelle famille", "mutuelle enfants", "orthodontie", "lunettes enfants"],
+    content: [
+      { paragraph: "Une bonne mutuelle famille doit couvrir les besoins spécifiques des enfants tout en restant abordable pour le foyer." },
+      { heading: "Orthodontie et soins dentaires", paragraph: "Souvent peu remboursés par la Sécurité sociale, ils peuvent coûter plusieurs milliers d'euros." },
+      { heading: "Optique enfant", paragraph: "Les enfants changent fréquemment de lunettes. Vérifiez les forfaits annuels." },
+      { heading: "Gratuit pour le 3e enfant", paragraph: "De nombreux contrats offrent la gratuité à partir du 3e enfant : un vrai bon plan pour les grandes familles." },
+    ],
+  },
+  {
+    slug: "remboursement-dentaire-optique-tout-comprendre",
+    title: "Remboursements dentaire et optique : tout comprendre",
+    description:
+      "100% santé, plafonds, dépassements d'honoraires : décryptage des remboursements dentaire et optique pour bien lire votre contrat.",
+    image: blogDentaire,
+    category: "Dentaire & Optique",
+    author: "Équipe NEOASSUR",
+    date: "2026-01-30",
+    readingTime: "7 min",
+    keywords: ["remboursement dentaire", "remboursement optique", "100% santé", "reste à charge"],
+    content: [
+      { paragraph: "Le dispositif 100% Santé permet d'accéder à un panier de soins sans reste à charge. Mais toutes les prestations ne sont pas incluses." },
+      { heading: "Le panier 100% Santé", paragraph: "Lunettes, prothèses dentaires et aides auditives d'entrée de gamme sont intégralement remboursés." },
+      { heading: "Hors panier : attention aux plafonds", paragraph: "Pour des verres progressifs ou des couronnes céramique, comparez les plafonds annuels." },
+      { heading: "Notre conseil", paragraph: "Choisissez un contrat avec un forfait optique d'au moins 400 € et dentaire à 300 % de la base de remboursement." },
+    ],
+  },
+  {
+    slug: "mutuelle-tns-independants",
+    title: "Mutuelle TNS : la bonne couverture pour les indépendants",
+    description:
+      "Travailleurs non-salariés : découvrez comment choisir votre mutuelle santé et profiter de la loi Madelin pour réduire vos impôts.",
+    image: blogTns,
+    category: "Indépendants",
+    author: "Équipe NEOASSUR",
+    date: "2026-01-12",
+    readingTime: "6 min",
+    keywords: ["mutuelle TNS", "loi Madelin", "indépendants", "auto-entrepreneur"],
+    content: [
+      { paragraph: "En tant que travailleur indépendant, vous ne bénéficiez pas de la mutuelle obligatoire d'entreprise. Bien choisir votre contrat est essentiel." },
+      { heading: "Loi Madelin : un avantage fiscal", paragraph: "Vos cotisations sont déductibles de votre revenu imposable dans la limite des plafonds légaux." },
+      { heading: "Prévoyance obligatoire", paragraph: "Pensez aussi à couvrir vos arrêts de travail et l'invalidité, peu couverts par les régimes obligatoires des TNS." },
+      { heading: "Sur-mesure pour votre activité", paragraph: "Un artisan, un consultant ou un médecin n'ont pas les mêmes besoins. Faites étudier votre situation." },
+    ],
+  },
+  {
+    slug: "mutuelle-jeune-actif",
+    title: "Mutuelle jeune actif : quelle couverture pour démarrer dans la vie professionnelle",
+    description:
+      "Premier emploi, premier salaire : découvrez comment choisir une mutuelle santé adaptée aux jeunes actifs avec un budget maîtrisé et les bonnes garanties essentielles.",
+    image: blogJeuneActif,
+    category: "Jeune actif",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-05",
+    readingTime: "5 min",
+    keywords: ["mutuelle jeune actif", "mutuelle premier emploi", "complémentaire jeune", "mutuelle pas cher"],
+    content: [
+      { paragraph: "Vous venez de signer votre premier CDI ? Bonne nouvelle : votre employeur prend en charge au moins 50 % de votre mutuelle d'entreprise. Mais celle-ci n'est pas toujours adaptée à votre profil." },
+      { heading: "La mutuelle d'entreprise : obligatoire mais pas toujours optimale", paragraph: "Si elle reste avantageuse financièrement, sa couverture peut s'avérer insuffisante sur certains postes (optique, dentaire, médecines douces). Une surcomplémentaire peut combler les manques." },
+      { heading: "Les garanties essentielles à 25-35 ans", paragraph: "Privilégiez une bonne prise en charge hospitalière, l'optique et les soins courants. La maternité devient un critère clé si vous envisagez de fonder une famille." },
+      { heading: "Pensez à la portabilité", paragraph: "En cas de rupture de contrat, vous conservez votre mutuelle gratuitement pendant 12 mois. Un filet de sécurité précieux." },
+      { heading: "Faites le point chaque année", paragraph: "Votre situation évolue rapidement : couple, enfants, achat immobilier. Un audit annuel avec un conseiller NEOASSUR permet d'ajuster votre contrat." },
+    ],
+  },
+  {
+    slug: "mutuelle-maternite-bien-preparer",
+    title: "Mutuelle et maternité : bien préparer l'arrivée de bébé",
+    description:
+      "Suivi de grossesse, accouchement, chambre particulière, soins de bébé : comment choisir une mutuelle qui couvre vraiment la maternité et ses imprévus.",
+    image: blogMaternite,
+    category: "Maternité",
+    author: "Équipe NEOASSUR",
+    date: "2026-05-28",
+    readingTime: "6 min",
+    keywords: ["mutuelle maternité", "remboursement accouchement", "chambre particulière", "mutuelle grossesse"],
+    content: [
+      { paragraph: "Devenir parent change profondément vos besoins en santé. Anticiper sa mutuelle pendant la grossesse évite bien des mauvaises surprises au moment de l'accouchement." },
+      { heading: "Ce que prend en charge la Sécurité sociale", paragraph: "Le suivi de grossesse est remboursé à 100 % à partir du 6e mois, tout comme l'accouchement en maternité publique. Les dépassements d'honoraires et la chambre particulière restent à votre charge." },
+      { heading: "Les postes à surveiller", paragraph: "Chambre particulière (60 à 120 € par jour), dépassements d'honoraires de l'obstétricien, anesthésiste, péridurale de confort, lit accompagnant pour le conjoint." },
+      { heading: "Pensez à la prime de naissance", paragraph: "De nombreuses mutuelles versent un forfait de 150 à 500 € à la naissance. Un coup de pouce bienvenu pour la layette." },
+      { heading: "Anticipez l'inscription de bébé", paragraph: "Votre enfant doit être ajouté au contrat dans les 30 jours suivant la naissance pour bénéficier d'une couverture rétroactive." },
+    ],
+  },
+  {
+    slug: "mutuelle-hospitalisation-bien-couvrir",
+    title: "Hospitalisation : comment être vraiment bien couvert",
+    description:
+      "Chambre particulière, forfait journalier, dépassements d'honoraires : tout savoir pour éviter un reste à charge important en cas d'hospitalisation.",
+    image: blogHospitalisation,
+    category: "Hospitalisation",
+    author: "Équipe NEOASSUR",
+    date: "2026-05-18",
+    readingTime: "6 min",
+    keywords: ["mutuelle hospitalisation", "chambre particulière", "forfait journalier hospitalier", "dépassements honoraires"],
+    content: [
+      { paragraph: "Une hospitalisation, même courte, peut coûter cher. Bien comprendre les frais et les garanties de votre mutuelle est essentiel pour éviter une mauvaise surprise." },
+      { heading: "Le forfait journalier hospitalier", paragraph: "Il s'élève à 20 € par jour en hôpital et 15 € en psychiatrie. Il n'est pas remboursé par la Sécurité sociale mais l'est par la quasi-totalité des mutuelles, sans limite de durée." },
+      { heading: "La chambre particulière", paragraph: "Comptez 60 à 120 € par jour selon l'établissement. Les bons contrats proposent un forfait illimité ou supérieur à 80 €." },
+      { heading: "Les dépassements d'honoraires", paragraph: "En secteur 2, ils peuvent doubler le coût d'une intervention. Visez une garantie d'au moins 200 % de la base de remboursement, voire 300 % en grande agglomération." },
+      { heading: "Pensez au confort", paragraph: "Télévision, Wi-Fi, lit accompagnant : ces petits plus, souvent remboursés, font la différence en cas de séjour prolongé." },
+    ],
+  },
+  {
+    slug: "audioprotheses-remboursement-bien-choisir",
+    title: "Audioprothèses : bien comprendre les remboursements en 2026",
+    description:
+      "Aides auditives, panier 100% Santé, forfaits mutuelle : nos conseils pour bien choisir vos audioprothèses sans exploser votre budget.",
+    image: blogAudio,
+    category: "Audition",
+    author: "Équipe NEOASSUR",
+    date: "2026-05-02",
+    readingTime: "5 min",
+    keywords: ["audioprothèse remboursement", "aides auditives", "100% santé audio", "mutuelle audition"],
+    content: [
+      { paragraph: "Une aide auditive coûte en moyenne 1 500 € par oreille. Heureusement, le dispositif 100% Santé et une bonne mutuelle limitent fortement votre reste à charge." },
+      { heading: "Le panier 100% Santé", paragraph: "Depuis 2021, certaines audioprothèses sont intégralement remboursées par la Sécurité sociale et votre mutuelle, sans aucun reste à charge." },
+      { heading: "Les modèles hors panier", paragraph: "Pour les appareils plus discrets ou plus performants, vérifiez le forfait audio de votre mutuelle (idéalement 800 € minimum par oreille tous les 4 ans)." },
+      { heading: "Renouvellement", paragraph: "La prise en charge est possible tous les 4 ans. Anticipez pour ne pas vous retrouver sans solution en cas de panne." },
+    ],
+  },
+  {
+    slug: "mutuelle-etudiante-bien-choisir",
+    title: "Mutuelle étudiante : faut-il en souscrire une et laquelle ?",
+    description:
+      "Depuis la fin du régime étudiant, comment bien se couvrir quand on est étudiant ? Nos conseils pour trouver une mutuelle santé pas chère et adaptée.",
+    image: blogEtudiant,
+    category: "Étudiant",
+    author: "Équipe NEOASSUR",
+    date: "2026-04-22",
+    readingTime: "4 min",
+    keywords: ["mutuelle étudiante", "mutuelle pas cher étudiant", "complémentaire santé étudiant"],
+    content: [
+      { paragraph: "Depuis 2019, les étudiants sont rattachés au régime général. Mais la Sécurité sociale ne rembourse pas tout : une mutuelle reste indispensable." },
+      { heading: "Rester sur la mutuelle des parents", paragraph: "Jusqu'à 28 ans (parfois plus), vous pouvez rester ayant-droit sur la mutuelle familiale. Souvent l'option la plus économique." },
+      { heading: "Souscrire une mutuelle étudiante", paragraph: "À partir de 10 €/mois, des formules dédiées couvrent l'essentiel : consultations, optique, contraception et même téléconsultation." },
+      { heading: "Pensez à la CSS", paragraph: "Si vos revenus sont faibles, vous pouvez bénéficier de la Complémentaire Santé Solidaire, gratuite ou à 1 €/jour." },
+    ],
+  },
+  {
+    slug: "assurance-sante-expatries",
+    title: "Assurance santé pour expatriés : ce qu'il faut savoir avant de partir",
+    description:
+      "Vous partez vivre à l'étranger ? Découvrez les différences entre CFE, assurance internationale et mutuelle locale pour bien vous couvrir où que vous soyez.",
+    image: blogExpat,
+    category: "Expatriation",
+    author: "Équipe NEOASSUR",
+    date: "2026-04-08",
+    readingTime: "7 min",
+    keywords: ["assurance expatrié", "santé international", "CFE", "mutuelle expat"],
+    content: [
+      { paragraph: "Quitter la France implique de revoir entièrement votre couverture santé. La Sécurité sociale française ne vous suit pas automatiquement à l'étranger." },
+      { heading: "La CFE : garder un lien avec la Sécu", paragraph: "La Caisse des Français à l'Étranger permet de conserver une couverture proche du régime général. Indispensable si vous prévoyez de rentrer en France." },
+      { heading: "Une assurance internationale en complément", paragraph: "Frais réels, rapatriement, hospitalisation à l'étranger : une assurance internationale couvre ce que la CFE ne prend pas en charge." },
+      { heading: "Attention aux zones à risque", paragraph: "USA, Asie, Moyen-Orient : les coûts médicaux peuvent être exorbitants. Une couverture sans plafond y est fortement recommandée." },
+      { heading: "Pensez à la famille", paragraph: "Conjoint, enfants scolarisés, parents en visite : assurez-vous que tout le monde est protégé." },
+    ],
+  },
+  {
+    slug: "teleconsultation-remboursement-mutuelle",
+    title: "Téléconsultation : comment est-elle remboursée par votre mutuelle ?",
+    description:
+      "La téléconsultation explose en France. Découvrez comment elle est prise en charge par la Sécurité sociale et votre mutuelle, et comment en profiter au quotidien.",
+    image: blogTeleconsultation,
+    category: "Téléconsultation",
+    author: "Équipe NEOASSUR",
+    date: "2026-03-15",
+    readingTime: "4 min",
+    keywords: ["téléconsultation remboursement", "médecin en ligne", "mutuelle téléconsultation", "consultation vidéo"],
+    content: [
+      { paragraph: "Plus besoin d'attendre des semaines pour voir un médecin. La téléconsultation, remboursée comme une consultation classique, simplifie l'accès aux soins." },
+      { heading: "Le remboursement Sécurité sociale", paragraph: "Une téléconsultation est remboursée à 70 % du tarif conventionnel, à condition de passer par votre médecin traitant ou un service partenaire." },
+      { heading: "L'apport de la mutuelle", paragraph: "De nombreux contrats incluent un accès illimité à la téléconsultation 24/7, sans avance de frais ni dépassement." },
+      { heading: "Une vraie solution pour les déserts médicaux", paragraph: "Là où les rendez-vous sont rares, la téléconsultation devient un outil indispensable pour un suivi régulier." },
+    ],
+  },
+  {
+    slug: "medecines-douces-remboursement",
+    title: "Médecines douces : ostéopathie, acupuncture, sophrologie… quels remboursements ?",
+    description:
+      "Ostéopathie, acupuncture, sophrologie, naturopathie : la Sécu ne rembourse pas, mais votre mutuelle peut. Découvrez comment bien choisir vos garanties.",
+    image: blogMedecinesDouces,
+    category: "Médecines douces",
+    author: "Équipe NEOASSUR",
+    date: "2026-02-28",
+    readingTime: "5 min",
+    keywords: ["médecines douces remboursement", "ostéopathie mutuelle", "acupuncture remboursement", "sophrologie mutuelle"],
+    content: [
+      { paragraph: "De plus en plus de Français se tournent vers les médecines douces pour gérer stress, douleurs ou troubles du sommeil. Bonne nouvelle : la plupart des mutuelles en couvrent une partie." },
+      { heading: "Un forfait annuel à comparer", paragraph: "La majorité des contrats proposent un forfait annuel (100 à 500 €) avec un plafond par séance. Idéal pour 4 à 10 consultations par an." },
+      { heading: "Les disciplines couvertes", paragraph: "Ostéopathie, chiropractie, acupuncture, sophrologie et étiopathie sont les plus fréquemment remboursées. Vérifiez la liste exacte avant de souscrire." },
+      { heading: "Justificatifs nécessaires", paragraph: "Conservez vos factures : la mutuelle exige généralement un numéro ADELI ou une attestation de formation du praticien." },
+      { heading: "Notre conseil", paragraph: "Si vous consultez régulièrement, privilégiez un contrat avec un forfait dédié plutôt qu'un plafond global trop limité." },
+    ],
+  },
+  {
+    slug: "devis-mutuelle-2-minutes",
+    title: "Devis mutuelle en 2 minutes : comment ça marche et combien vous économisez",
+    description:
+      "Obtenez un devis mutuelle santé personnalisé en moins de 2 minutes en ligne. Découvrez la méthode NEOASSUR pour comparer 20 assureurs et économiser jusqu'à 40 %.",
+    image: blogDevis2min,
+    category: "Devis en ligne",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-18",
+    readingTime: "4 min",
+    keywords: ["devis mutuelle", "devis mutuelle gratuit", "devis mutuelle en ligne", "comparateur mutuelle"],
+    content: [
+      { paragraph: "Comparer les mutuelles santé n'a jamais été aussi rapide. En 2 minutes chrono, vous recevez plusieurs devis personnalisés sans engagement et un appel d'un expert si vous le souhaitez." },
+      { heading: "Étape 1 : votre profil en 30 secondes", paragraph: "Âge, situation familiale, régime social et besoins prioritaires (optique, dentaire, hospitalisation). Aucune information médicale n'est demandée." },
+      { heading: "Étape 2 : comparaison instantanée", paragraph: "Notre moteur interroge plus de 20 assureurs partenaires et classe les offres selon votre budget et vos garanties prioritaires." },
+      { heading: "Étape 3 : un expert vous rappelle (gratuit)", paragraph: "Un conseiller NEOASSUR analyse votre contrat actuel, identifie les économies possibles et vous accompagne dans la souscription. Le tout sans frais." },
+      { heading: "Combien économise-t-on ?", paragraph: "En moyenne, nos clients réduisent leur cotisation de 320 €/an, à garanties équivalentes ou supérieures. Pour les seniors, l'économie dépasse souvent 600 €/an." },
+    ],
+  },
+  {
+    slug: "resilier-mutuelle-loi-resiliation-infra-annuelle",
+    title: "Résilier sa mutuelle santé : comment faire en 2026 (loi infra-annuelle)",
+    description:
+      "Vous voulez changer de mutuelle ? Depuis la loi de résiliation infra-annuelle, vous pouvez résilier à tout moment après 1 an. Mode d'emploi complet et lettre type.",
+    image: blogResiliation,
+    category: "Résiliation",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-14",
+    readingTime: "5 min",
+    keywords: ["résilier mutuelle", "résiliation infra-annuelle", "loi Chatel mutuelle", "changer de mutuelle"],
+    content: [
+      { paragraph: "Depuis le 1er décembre 2020, la loi de résiliation infra-annuelle vous permet de résilier votre mutuelle à tout moment, sans frais ni justificatif, après un an de contrat." },
+      { heading: "Les conditions à respecter", paragraph: "Le contrat doit avoir plus d'un an d'ancienneté. La résiliation prend effet un mois après réception de la demande par l'assureur." },
+      { heading: "Comment envoyer la demande", paragraph: "Lettre recommandée avec accusé de réception, email, espace client ou même par téléphone selon les assureurs. NEOASSUR s'occupe gratuitement de toute la procédure à votre place." },
+      { heading: "Sans interruption de garanties", paragraph: "Votre nouvelle mutuelle prend le relais le jour même de la résiliation. Aucune période sans couverture." },
+      { heading: "Et avant 1 an de contrat ?", paragraph: "La loi Chatel s'applique : votre assureur doit vous informer de la date limite de résiliation au moins 15 jours avant l'échéance annuelle. À défaut, vous pouvez résilier à tout moment." },
+    ],
+  },
+  {
+    slug: "comparateur-mutuelle-2026",
+    title: "Comparateur mutuelle 2026 : comment bien comparer pour économiser",
+    description:
+      "Tous les comparateurs ne se valent pas. Découvrez la méthode pour comparer efficacement les mutuelles santé en 2026 et trouver le meilleur rapport garanties/prix.",
+    image: blogComparateur,
+    category: "Comparateur",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-10",
+    readingTime: "6 min",
+    keywords: ["comparateur mutuelle", "comparateur mutuelle 2026", "comparateur mutuelle gratuit", "meilleure mutuelle"],
+    content: [
+      { paragraph: "Avec plus de 400 organismes complémentaires en France, comparer les mutuelles est devenu indispensable. Mais attention : tous les comparateurs ne se valent pas." },
+      { heading: "Comparez à garanties équivalentes", paragraph: "Une mutuelle moins chère qui rembourse 100 % au lieu de 300 % en dentaire n'est pas une bonne affaire. Toujours raisonner à niveau de couverture équivalent." },
+      { heading: "Vérifiez le nombre de partenaires", paragraph: "Les meilleurs comparateurs interrogent 15 à 30 assureurs. Un comparateur avec seulement 3 partenaires donne une vision biaisée du marché." },
+      { heading: "Le piège des frais cachés", paragraph: "Frais de dossier, hausse à la 2e année, exclusions sur certains soins : lisez attentivement les conditions générales avant de signer." },
+      { heading: "L'avantage de l'accompagnement humain", paragraph: "Un comparateur 100 % en ligne ne remplace pas un conseiller. Chez NEOASSUR, l'expertise humaine est gratuite et permet de gagner en moyenne 320 €/an." },
+    ],
+  },
+  {
+    slug: "mutuelle-fonctionnaire-bien-choisir",
+    title: "Mutuelle fonctionnaire : bien choisir en 2026 (PSC, référencement)",
+    description:
+      "Fonctionnaire d'État, territorial ou hospitalier : avec la réforme PSC, votre employeur participe à votre mutuelle. Comment en profiter et bien choisir votre contrat.",
+    image: blogFonctionnaire,
+    category: "Fonctionnaire",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-06",
+    readingTime: "6 min",
+    keywords: ["mutuelle fonctionnaire", "PSC fonction publique", "mutuelle territoriale", "mutuelle référencée"],
+    content: [
+      { paragraph: "Depuis la réforme de la Protection Sociale Complémentaire (PSC), les employeurs publics participent au financement de la mutuelle santé de leurs agents. Une vraie opportunité." },
+      { heading: "Fonction publique d'État", paragraph: "Depuis 2024, l'État rembourse 15 €/mois minimum sur votre cotisation, et à partir de 2026, prend en charge 50 % d'un contrat collectif obligatoire selon le ministère." },
+      { heading: "Fonction publique territoriale", paragraph: "Votre collectivité peut participer dans le cadre d'une labellisation ou d'une convention de participation. Renseignez-vous auprès de votre service RH." },
+      { heading: "Fonction publique hospitalière", paragraph: "Les agents bénéficient d'un cadre spécifique avec des contrats référencés négociés. À partir de 2026, la participation employeur monte à 50 %." },
+      { heading: "Faut-il rester sur un contrat référencé ?", paragraph: "Pas toujours. Comparer avec une mutuelle individuelle reste pertinent : selon votre profil, l'économie peut atteindre 200 à 500 €/an, même avec la participation employeur." },
+    ],
+  },
+  {
+    slug: "assurance-emprunteur-refus-banque",
+    title: "Refus d'assurance emprunteur : quelles solutions pour décrocher votre prêt",
+    description:
+      "Risque aggravé de santé, profession à risque, âge : un refus d'assurance emprunteur n'est pas une fatalité. Découvrez les recours et la convention AERAS.",
+    image: blogEmprunteurRefus,
+    category: "Assurance emprunteur",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-02",
+    readingTime: "6 min",
+    keywords: ["refus assurance emprunteur", "convention AERAS", "risque aggravé santé", "assurance prêt immobilier"],
+    content: [
+      { paragraph: "Un refus d'assurance emprunteur peut faire échouer un projet immobilier. Pourtant, des solutions existent presque toujours, même en cas de risque aggravé de santé." },
+      { heading: "La convention AERAS", paragraph: "S'Assurer et Emprunter avec un Risque Aggravé de Santé : cette convention impose à 3 niveaux d'examen d'étudier les dossiers refusés. Plus de 80 % des demandes finissent par aboutir." },
+      { heading: "Le droit à l'oubli", paragraph: "Depuis la loi Lemoine, plus aucune information sur un ancien cancer ou hépatite C n'est exigée après 5 ans de rémission. Une avancée majeure pour des millions d'emprunteurs." },
+      { heading: "La délégation d'assurance", paragraph: "Si votre banque refuse, un assureur externe spécialisé peut accepter votre dossier avec des garanties équivalentes. C'est votre droit depuis la loi Lagarde." },
+      { heading: "Notre accompagnement", paragraph: "Les courtiers NEOASSUR analysent gratuitement votre dossier et orientent vers les assureurs les plus susceptibles d'accepter votre profil. Sans frais ni engagement." },
+    ],
+  },
+  {
+    slug: "prevoyance-arret-travail-tns",
+    title: "Prévoyance arrêt de travail : pourquoi c'est vital pour les indépendants",
+    description:
+      "En cas d'arrêt maladie, les TNS touchent peu ou pas d'indemnités. Une prévoyance est indispensable pour maintenir vos revenus. Nos conseils pour bien choisir.",
+    image: blogPrevoyanceArret,
+    category: "Prévoyance",
+    author: "Équipe NEOASSUR",
+    date: "2026-05-22",
+    readingTime: "6 min",
+    keywords: ["prévoyance TNS", "prévoyance indépendant", "arrêt de travail", "indemnités journalières"],
+    content: [
+      { paragraph: "Pour un indépendant, un arrêt de travail de plusieurs semaines peut mettre en péril son foyer et son entreprise. La prévoyance arrêt de travail compense la chute de revenus." },
+      { heading: "Ce que vous touchez sans prévoyance", paragraph: "Pour un artisan ou commerçant : environ 22 à 60 €/jour, après 3 jours de carence. Pour un profession libérale : souvent 0 € avant 90 jours. Insuffisant pour vivre." },
+      { heading: "Les indemnités journalières complémentaires", paragraph: "Votre prévoyance verse un complément quotidien pour maintenir 80 à 100 % de vos revenus dès le 1er, 8e, 15e ou 30e jour selon le contrat choisi." },
+      { heading: "Couvrir aussi l'invalidité et le décès", paragraph: "Une bonne prévoyance inclut une rente d'invalidité (jusqu'à 100 % des revenus) et un capital décès pour protéger vos proches." },
+      { heading: "Loi Madelin : un avantage fiscal", paragraph: "Vos cotisations prévoyance sont déductibles du revenu imposable dans la limite légale. Un atout financier non négligeable." },
+    ],
+  },
+  {
+    slug: "assurance-animaux-chien-chat",
+    title: "Assurance santé animale : bien protéger votre chien ou votre chat",
+    description:
+      "Frais vétérinaires en hausse, remboursements, délais de carence : découvrez comment choisir une assurance santé pour votre chien ou votre chat sans vous ruiner.",
+    image: blogAnimaux,
+    category: "Animaux",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-08",
+    readingTime: "6 min",
+    keywords: ["assurance animaux", "mutuelle chien chat", "assurance chien", "assurance chat", "frais vétérinaires"],
+    content: [
+      { paragraph: "Une opération chirurgicale chez un chien peut dépasser 2 000 €. Face à la hausse des frais vétérinaires, l'assurance santé animale devient un vrai bouclier financier pour les propriétaires." },
+      { heading: "Comment fonctionne le remboursement", paragraph: "Vous avancez les frais chez le vétérinaire, puis l'assurance vous rembourse selon un taux (de 50 à 100 %) et un plafond annuel. Les meilleurs contrats remboursent en quelques jours." },
+      { heading: "Attention aux délais de carence et exclusions", paragraph: "La plupart des contrats appliquent un délai de carence (7 jours pour la maladie, 48h pour l'accident) et excluent les maladies préexistantes. Souscrire jeune évite les mauvaises surprises." },
+      { heading: "Le forfait prévention", paragraph: "Vaccins, vermifuges, stérilisation ou détartrage sont parfois pris en charge via un forfait prévention annuel de 50 à 150 €. Un vrai plus au quotidien." },
+      { heading: "Notre conseil", paragraph: "Comparez le taux de remboursement, le plafond annuel et le reste à charge réel. Un contrat à 100 % avec un plafond élevé est souvent plus rentable qu'une formule bas de gamme." },
+    ],
+  },
+  {
+    slug: "complementaire-sante-solidaire-css",
+    title: "Complémentaire Santé Solidaire (CSS) : conditions et démarches en 2026",
+    description:
+      "La CSS remplace la CMU-C et l'ACS. Gratuite ou à moins de 1 €/jour, découvrez les conditions de ressources, les soins couverts et comment en faire la demande.",
+    image: blogCss,
+    category: "Aides",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-05",
+    readingTime: "5 min",
+    keywords: ["complémentaire santé solidaire", "CSS", "CMU-C", "aide mutuelle", "mutuelle gratuite"],
+    content: [
+      { paragraph: "La Complémentaire Santé Solidaire (CSS) permet aux personnes à revenus modestes d'accéder à une couverture santé gratuite ou quasi gratuite, sans reste à charge sur de nombreux soins." },
+      { heading: "Qui peut en bénéficier ?", paragraph: "L'attribution dépend de vos ressources et de la composition de votre foyer. Pour une personne seule, le plafond se situe autour de 10 300 €/an pour la version gratuite, et un peu plus pour la version payante." },
+      { heading: "Gratuite ou à moins de 1 €/jour", paragraph: "Selon vos revenus, la CSS est totalement gratuite ou soumise à une participation plafonnée (moins de 1 €/jour et par personne, variable selon l'âge)." },
+      { heading: "Des soins sans avance de frais", paragraph: "Consultations, médicaments, hospitalisation, lunettes, prothèses dentaires et auditives du panier 100 % Santé sont pris en charge sans reste à charge et sans avance de frais." },
+      { heading: "Comment faire la demande", paragraph: "La demande se fait en ligne sur le compte ameli ou via un formulaire papier. Nos conseillers NEOASSUR peuvent vous aider gratuitement à monter votre dossier." },
+    ],
+  },
+  {
+    slug: "mutuelle-chomage-demandeur-emploi",
+    title: "Mutuelle et chômage : comment rester bien couvert sans emploi",
+    description:
+      "Portabilité, CSS, mutuelle individuelle : découvrez toutes les solutions pour conserver une bonne couverture santé pendant une période de chômage.",
+    image: blogChomage,
+    category: "Chômage",
+    author: "Équipe NEOASSUR",
+    date: "2026-07-02",
+    readingTime: "5 min",
+    keywords: ["mutuelle chômage", "portabilité mutuelle", "mutuelle demandeur emploi", "mutuelle sans emploi"],
+    content: [
+      { paragraph: "Perdre son emploi ne signifie pas perdre sa couverture santé. Plusieurs dispositifs permettent de rester bien protégé, souvent gratuitement pendant plusieurs mois." },
+      { heading: "La portabilité : 12 mois gratuits", paragraph: "Après une rupture de contrat ouvrant droit à l'assurance chômage, vous conservez gratuitement la mutuelle de votre ancien employeur jusqu'à 12 mois. Aucune démarche complexe : l'employeur informe l'organisme." },
+      { heading: "Quand la portabilité prend fin", paragraph: "À l'issue des 12 mois, vous pouvez souscrire une mutuelle individuelle. Certains assureurs proposent de reprendre le contrat collectif à titre personnel, mais souvent à un tarif plus élevé." },
+      { heading: "Pensez à la CSS", paragraph: "Si vos revenus baissent fortement, vous êtes peut-être éligible à la Complémentaire Santé Solidaire, gratuite ou à moins de 1 €/jour." },
+      { heading: "Comparer pour économiser", paragraph: "Une mutuelle individuelle bien choisie peut coûter moins cher que la reprise du contrat d'entreprise. Un conseiller NEOASSUR compare gratuitement les offres adaptées à votre nouvelle situation." },
+    ],
+  },
+  {
+    slug: "assurance-vie-epargne-transmission",
+    title: "Assurance vie : épargner et transmettre son patrimoine en 2026",
+    description:
+      "Placement préféré des Français, l'assurance vie combine épargne souple et fiscalité avantageuse pour transmettre. Découvrez comment bien en profiter.",
+    image: blogAssuranceVie,
+    category: "Épargne",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-28",
+    readingTime: "7 min",
+    keywords: ["assurance vie", "épargne assurance vie", "transmission patrimoine", "fiscalité assurance vie"],
+    content: [
+      { paragraph: "Avec plus de 1 900 milliards d'euros investis, l'assurance vie reste le placement favori des Français. Souple et fiscalement avantageuse, elle sert autant à épargner qu'à transmettre." },
+      { heading: "Fonds euros ou unités de compte ?", paragraph: "Le fonds euros garantit votre capital avec un rendement modéré. Les unités de compte visent une performance supérieure mais comportent un risque de perte. Un contrat multisupport permet de combiner les deux." },
+      { heading: "Une fiscalité qui récompense la durée", paragraph: "Après 8 ans de détention, vos retraits bénéficient d'un abattement annuel (4 600 € pour une personne seule, 9 200 € pour un couple) sur les gains imposables." },
+      { heading: "Un outil de transmission puissant", paragraph: "Les capitaux transmis au décès échappent en grande partie aux droits de succession : jusqu'à 152 500 € par bénéficiaire pour les versements effectués avant 70 ans." },
+      { heading: "Bien rédiger sa clause bénéficiaire", paragraph: "C'est l'élément clé : une clause précise et à jour garantit que votre capital ira aux bonnes personnes. Nos conseillers vous accompagnent gratuitement dans sa rédaction." },
+    ],
+  },
+  {
+    slug: "mutuelle-optique-verres-progressifs",
+    title: "Optique : bien se faire rembourser lunettes et verres progressifs",
+    description:
+      "Verres progressifs, montures, lentilles : les prix flambent. Découvrez comment le 100 % Santé et votre mutuelle limitent votre reste à charge en optique.",
+    image: blogOptique,
+    category: "Optique",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-25",
+    readingTime: "5 min",
+    keywords: ["remboursement optique", "verres progressifs", "mutuelle lunettes", "100% santé optique", "remboursement lentilles"],
+    content: [
+      { paragraph: "Une paire de lunettes à verres progressifs dépasse souvent 500 €. Entre le 100 % Santé et une bonne mutuelle, il est pourtant possible de réduire fortement la facture." },
+      { heading: "Le panier 100 % Santé optique", paragraph: "Il propose des montures et verres (y compris progressifs) intégralement remboursés, sans reste à charge. La qualité est correcte, même si le choix de montures est limité." },
+      { heading: "Hors panier : vérifiez le forfait", paragraph: "Pour des verres amincis, anti-lumière bleue ou des montures de marque, comparez le forfait optique de votre mutuelle. Visez au moins 300 à 400 € pour des verres progressifs." },
+      { heading: "Le rythme de renouvellement", paragraph: "La prise en charge est en général possible tous les 2 ans pour un adulte, et tous les ans pour les enfants ou en cas d'évolution de la vue." },
+      { heading: "Et les lentilles ?", paragraph: "Souvent hors 100 % Santé, elles sont remboursées via un forfait annuel dédié (100 à 250 €). Vérifiez ce poste si vous portez des lentilles au quotidien." },
+    ],
+  },
+  {
+    slug: "prevoyance-deces-proteger-famille",
+    title: "Assurance décès : comment protéger financièrement votre famille",
+    description:
+      "Capital décès, rente éducation, garantie invalidité : découvrez comment une assurance décès met vos proches à l'abri en cas de coup dur.",
+    image: blogPrevoyanceDeces,
+    category: "Prévoyance",
+    author: "Équipe NEOASSUR",
+    date: "2026-06-22",
+    readingTime: "6 min",
+    keywords: ["assurance décès", "capital décès", "prévoyance famille", "rente éducation", "garantie décès"],
+    content: [
+      { paragraph: "En cas de décès prématuré, la perte de revenus peut fragiliser gravement un foyer. L'assurance décès verse un capital ou une rente pour protéger financièrement vos proches." },
+      { heading: "Le capital décès", paragraph: "Vous choisissez un montant (souvent 3 à 5 ans de revenus) versé à vos bénéficiaires. Il permet de rembourser un crédit, financer les études des enfants ou maintenir le niveau de vie du conjoint." },
+      { heading: "La rente éducation et la rente de conjoint", paragraph: "En complément du capital, une rente éducation finance la scolarité des enfants jusqu'à la fin de leurs études, et une rente de conjoint sécurise le revenu du partenaire survivant." },
+      { heading: "Souscrire jeune et en bonne santé", paragraph: "Plus vous souscrivez tôt, plus la cotisation est faible. Un questionnaire de santé simplifié suffit souvent pour des capitaux modérés." },
+      { heading: "Ne pas confondre avec l'assurance obsèques", paragraph: "L'assurance décès protège le niveau de vie de la famille, alors que l'assurance obsèques finance uniquement les frais funéraires. Les deux sont complémentaires." },
+    ],
+  },
+];
+
+export const getPostBySlug = (slug: string) =>
+  BLOG_POSTS.find((p) => p.slug === slug);
