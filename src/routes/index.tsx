@@ -39,16 +39,16 @@ const HERO_MOBILE_IMAGES = [heroMobile1, heroMobile2, heroMobile3];
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mutuelle Santé, Assurance Emprunteur & Obsèques 2026 — NEOASSUR" },
+      { title: "Assurance santé & mutuelle santé en France — Devis gratuit | NEOASSUR" },
       {
         name: "description",
         content:
-          "NEOASSUR, courtier en assurance : comparez +25 mutuelles santé, assurance emprunteur (loi Lemoine) et prévoyance obsèques. Devis gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise, fonctionnaire, expatrié.",
+          "Assurance santé, mutuelle santé et complémentaire santé en France : comparez +25 assureurs avec NEOASSUR. Devis assurance mutuelle santé gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise.",
       },
       {
         name: "keywords",
         content:
-          "assurance, mutuelle santé, complémentaire santé, comparateur assurance, comparateur mutuelle santé, devis assurance, devis mutuelle santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, changer assurance emprunteur, assurance prêt immobilier, assurance obsèques, contrat obsèques, capital décès, assurance décès, prévoyance, prévoyance senior, courtier assurance, NEOASSUR",
+          "assurance santé, assurance santé France, assurance de santé, assurance mutuelle santé, mutuelle assurance santé, mutuelle santé assurance, mutuelle santé, mutuelle de santé, mutuelle, complémentaire santé, assurance, comparateur assurance santé, comparateur mutuelle santé, devis assurance santé, devis mutuelle santé, meilleure assurance santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, assurance obsèques, contrat obsèques, courtier assurance, NEOASSUR",
       },
       { name: "author", content: "NEOASSUR" },
       { name: "publisher", content: "NEOASSUR" },
