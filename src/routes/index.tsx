@@ -39,16 +39,16 @@ const HERO_MOBILE_IMAGES = [heroMobile1, heroMobile2, heroMobile3];
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Assurance santé & mutuelle santé en France — Devis gratuit | NEOASSUR" },
+      { title: "Mutuelle santé & assurance santé en France — Tous âges, devis gratuit | NEOASSUR" },
       {
         name: "description",
         content:
-          "Assurance santé, mutuelle santé et complémentaire santé en France : comparez +25 assureurs avec NEOASSUR. Devis assurance mutuelle santé gratuit en 2 min, économies jusqu'à 40% (312€/an). Famille, senior, étudiant, indépendant, entreprise.",
+          "Mutuelle santé & assurance santé en France pour tous les âges : bébé, enfant, étudiant, jeune actif, famille, TNS, fonctionnaire, senior, retraité, +70 ans. Comparez +25 assureurs, devis gratuit en 2 min, jusqu'à 40% d'économies (312€/an) avec NEOASSUR.",
       },
       {
         name: "keywords",
         content:
-          "assurance santé, assurance santé France, assurance de santé, assurance mutuelle santé, mutuelle assurance santé, mutuelle santé assurance, mutuelle santé, mutuelle de santé, mutuelle, complémentaire santé, assurance, comparateur assurance santé, comparateur mutuelle santé, devis assurance santé, devis mutuelle santé, meilleure assurance santé, meilleure mutuelle santé, mutuelle santé pas chère, mutuelle santé en ligne, mutuelle santé famille, mutuelle santé senior, mutuelle santé étudiant, mutuelle santé indépendant, mutuelle santé entreprise, mutuelle santé fonctionnaire, mutuelle santé expatrié, mutuelle sans questionnaire médical, mutuelle sans délai de carence, remboursement mutuelle, mutuelle optique, mutuelle dentaire, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, assurance emprunteur, loi Lemoine, assurance obsèques, contrat obsèques, courtier assurance, NEOASSUR",
+          "assurance santé, assurance santé France, assurance de santé, assurance mutuelle santé, mutuelle assurance santé, mutuelle santé assurance, mutuelle santé, mutuelle de santé, mutuelle, mutuelle française, complémentaire santé, sur-complémentaire santé, assurance, assurance maladie complémentaire, comparateur assurance santé, comparateur mutuelle santé, comparateur mutuelle, devis assurance santé, devis mutuelle santé, devis mutuelle gratuit, simulation mutuelle santé, meilleure assurance santé, meilleure mutuelle santé, meilleure mutuelle 2026, mutuelle santé pas chère, mutuelle santé économique, mutuelle santé en ligne, mutuelle santé rapide, mutuelle santé immédiate, mutuelle sans questionnaire médical, mutuelle sans délai de carence, mutuelle santé tous âges, mutuelle santé bébé, mutuelle santé enfant, mutuelle santé jeune, mutuelle santé étudiant, mutuelle santé jeune actif, mutuelle santé 25 ans, mutuelle santé 30 ans, mutuelle santé jeune couple, mutuelle santé famille, mutuelle santé famille nombreuse, mutuelle santé monoparentale, mutuelle santé adulte, mutuelle santé 40 ans, mutuelle santé 50 ans, mutuelle santé 60 ans, mutuelle santé senior, mutuelle senior, mutuelle santé retraité, mutuelle retraité, mutuelle santé 65 ans, mutuelle santé 70 ans, mutuelle santé 75 ans, mutuelle santé 80 ans, mutuelle santé personnes âgées, mutuelle santé indépendant, mutuelle santé TNS, mutuelle santé auto-entrepreneur, mutuelle santé freelance, mutuelle santé profession libérale, mutuelle santé artisan, mutuelle santé commerçant, mutuelle santé agriculteur, mutuelle santé entreprise, mutuelle santé collective, mutuelle santé obligatoire entreprise, mutuelle santé salarié, mutuelle santé fonctionnaire, mutuelle santé militaire, mutuelle santé enseignant, mutuelle santé hospitalier, mutuelle santé expatrié, mutuelle santé frontalier, mutuelle santé européen, mutuelle santé étranger en France, mutuelle santé sans emploi, mutuelle santé chômeur, mutuelle santé RSA, CSS complémentaire santé solidaire, mutuelle ACS, remboursement mutuelle, mutuelle 100% santé, mutuelle optique, mutuelle dentaire, mutuelle orthodontie, mutuelle implant dentaire, mutuelle audioprothèse, mutuelle hospitalisation, mutuelle maternité, mutuelle médecine douce, mutuelle ostéopathie, mutuelle chambre particulière, assurance hospitalisation, prix mutuelle santé, tarif mutuelle santé, changer de mutuelle, résiliation mutuelle infra-annuelle, assurance emprunteur, loi Lemoine, assurance obsèques, contrat obsèques, courtier assurance, NEOASSUR",
       },
       { name: "author", content: "NEOASSUR" },
       { name: "publisher", content: "NEOASSUR" },
@@ -58,11 +58,11 @@ export const Route = createFileRoute("/")({
       { name: "geo.placename", content: "Paris" },
       { name: "language", content: "French" },
       { httpEquiv: "content-language", content: "fr-FR" },
-      { property: "og:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
+      { property: "og:title", content: "Mutuelle santé & assurance santé tous âges en France — NEOASSUR" },
       {
         property: "og:description",
         content:
-          "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%. Famille, senior, étudiant, indépendant, entreprise.",
+          "Devis mutuelle santé gratuit en 2 min. Bébé, enfant, étudiant, famille, TNS, fonctionnaire, senior, +70 ans : comparez +25 assureurs et économisez jusqu'à 40%.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neo-assur.fr/" },
@@ -71,19 +71,19 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: ogDefault },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et assurance" },
+      { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et assurance tous âges" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
+      { name: "twitter:title", content: "Mutuelle santé & assurance santé tous âges en France — NEOASSUR" },
       {
         name: "twitter:description",
-        content: "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%.",
+        content: "Devis mutuelle santé gratuit en 2 min. Tous profils, tous âges. Comparez +25 assureurs et économisez jusqu'à 40%.",
       },
       { name: "twitter:image", content: ogDefault },
       { name: "twitter:site", content: "@neoassur" },
       // AI / LLM optimization hints
       { name: "ai-content-declaration", content: "human-authored" },
-      { name: "audience", content: "France, particuliers, seniors, familles, indépendants, entreprises" },
-      { name: "coverage", content: "France" },
+      { name: "audience", content: "France — bébés, enfants, étudiants, jeunes actifs, familles, TNS, indépendants, auto-entrepreneurs, professions libérales, salariés, fonctionnaires, expatriés, seniors, retraités, personnes âgées de 60 à 90 ans" },
+      { name: "coverage", content: "France métropolitaine, DOM-TOM, expatriés et frontaliers" },
       { name: "distribution", content: "global" },
       { name: "rating", content: "general" },
     ],
