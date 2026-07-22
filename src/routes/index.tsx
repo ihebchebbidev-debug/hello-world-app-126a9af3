@@ -73,10 +73,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "NEOASSUR — Comparateur mutuelle santé et assurance" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NEOASSUR — Mutuelle santé au meilleur prix" },
+      { name: "twitter:title", content: "Assurance santé & mutuelle santé en France — NEOASSUR" },
       {
         name: "twitter:description",
-        content: "Devis gratuit en 2 minutes. Comparez +25 mutuelles santé et économisez jusqu'à 40%.",
+        content: "Devis assurance mutuelle santé gratuit en 2 minutes. Comparez +25 assureurs et économisez jusqu'à 40%.",
       },
       { name: "twitter:image", content: ogDefault },
       { name: "twitter:site", content: "@neoassur" },
