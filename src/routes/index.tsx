@@ -295,6 +295,46 @@ export const Route = createFileRoute("/")({
                   name: "NEOASSUR est-il un assureur agréé ?",
                   acceptedAnswer: { "@type": "Answer", text: "NEOASSUR est courtier en assurance immatriculé à l'ORIAS (Registre unique des intermédiaires en assurance), garantissant conformité, transparence et protection du consommateur." },
                 },
+                {
+                  "@type": "Question",
+                  name: "Quelle mutuelle santé choisir pour un bébé ou un enfant ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Pour un bébé ou un enfant, privilégiez une mutuelle famille avec forfait optique (lunettes), orthodontie, vaccins non remboursés et hospitalisation. NEOASSUR compare les formules famille des +25 assureurs partenaires pour trouver la meilleure couverture au meilleur prix." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Existe-t-il une mutuelle santé pour étudiant ou jeune actif ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Oui, dès 18 ans les étudiants et jeunes actifs peuvent souscrire une mutuelle santé dédiée à partir de 9 €/mois, avec couverture optique, dentaire et hospitalisation adaptée à leur budget." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle est la meilleure mutuelle santé pour un senior ou un retraité ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Les seniors (60 ans et plus) doivent privilégier une mutuelle renforcée en hospitalisation, dentaire (implants, prothèses), audioprothèse et optique. NEOASSUR propose des offres senior sans questionnaire médical, sans limite d'âge et sans délai de carence." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Peut-on souscrire une mutuelle santé après 70, 75 ou 80 ans ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Oui, NEOASSUR propose des mutuelles santé accessibles à tout âge, y compris après 70, 75, 80 et même 90 ans, sans questionnaire médical ni délai de carence sur la plupart des garanties." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle mutuelle santé pour un TNS, auto-entrepreneur ou profession libérale ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Les indépendants (TNS, auto-entrepreneurs, artisans, commerçants, professions libérales) peuvent souscrire une mutuelle santé Madelin déductible fiscalement. NEOASSUR compare les meilleures offres TNS du marché." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle mutuelle santé pour un fonctionnaire ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Les fonctionnaires (Éducation nationale, santé, territoriale, militaires) bénéficient de mutuelles labellisées et de la nouvelle Protection Sociale Complémentaire. NEOASSUR compare les offres référencées et non référencées pour votre ministère." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle mutuelle santé pour un expatrié ou un frontalier ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Expatriés (CFE et hors CFE) et frontaliers (Suisse, Luxembourg, Belgique) disposent d'offres spécifiques couvrant frais médicaux à l'étranger, rapatriement et retour en France. NEOASSUR compare les contrats internationaux dédiés." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle mutuelle santé pour une famille ou une famille nombreuse ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Les familles nombreuses bénéficient d'une gratuité à partir du 3e enfant chez plusieurs de nos assureurs partenaires. Une mutuelle famille couvre parents et enfants sur un seul contrat, avec forfait maternité, optique enfant et orthodontie." },
+                },
               ],
             },
           ],
