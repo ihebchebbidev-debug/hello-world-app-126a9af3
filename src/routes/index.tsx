@@ -232,6 +232,16 @@ export const Route = createFileRoute("/")({
               mainEntity: [
                 {
                   "@type": "Question",
+                  name: "Quelle est la différence entre assurance santé et mutuelle santé ?",
+                  acceptedAnswer: { "@type": "Answer", text: "Aucune différence pratique : « assurance santé », « assurance mutuelle santé », « complémentaire santé » et « mutuelle santé » désignent le contrat qui complète les remboursements de la Sécurité sociale (Assurance Maladie). NEOASSUR compare +25 assureurs pour vous trouver la meilleure formule." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quelle est la meilleure assurance santé en France en 2026 ?",
+                  acceptedAnswer: { "@type": "Answer", text: "La meilleure assurance santé dépend de votre profil (âge, famille, besoins optique/dentaire/hospitalisation). Notre comparateur croise votre profil avec +25 assureurs partenaires (Neoliane, April, SPVIE, Assuréa, C2G, FMA…) et sort les 3 meilleures offres du marché français." },
+                },
+                {
+                  "@type": "Question",
                   name: "Combien coûte un devis NEOASSUR ?",
                   acceptedAnswer: { "@type": "Answer", text: "Le devis est 100 % gratuit et sans engagement. Vous l'obtenez en moins de 2 minutes en ligne ou par téléphone au 01 87 66 56 10." },
                 },
