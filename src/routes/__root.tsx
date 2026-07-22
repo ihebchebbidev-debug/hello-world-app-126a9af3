@@ -78,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NEOASSUR — Mutuelle santé & complémentaire" },
+      { title: "NEOASSUR — Assurance, mutuelle santé, emprunteur & obsèques" },
       {
         name: "description",
         content:
-          "Courtier mutuelle santé, complémentaire, assurance emprunteur & prévoyance. Comparez +25 assureurs, économisez jusqu'à 40%. Devis gratuit en 2 min.",
+          "NEOASSUR, courtier en assurance : mutuelle santé, complémentaire, assurance emprunteur (loi Lemoine) et prévoyance obsèques. Comparez +25 assureurs, économisez jusqu'à 40%. Devis gratuit en 2 min.",
       },
 
 
