@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -15,6 +17,7 @@ type Vals = z.infer<typeof schema>;
 
 export function NewsletterForm() {
   const submit = useServerFn(subscribeNewsletter);
+  const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit, reset, formState: { isSubmitting, errors } } = useForm<Vals>({
     resolver: zodResolver(schema),
   });
@@ -26,13 +29,23 @@ export function NewsletterForm() {
         data: { ...data, source_page, gdpr_consent: true },
       });
       if (res?.ok) {
-        toast.success("Merci ! Vous êtes inscrit·e à notre newsletter.");
+        toast.success("Merci, votre inscription est confirmée.");
+        setSubmitted(true);
         reset();
       } else toast.error(res?.error ?? "Une erreur est survenue.");
     } catch {
       toast.error("Erreur réseau. Merci de réessayer.");
     }
   };
+  if (submitted) {
+    return (
+      <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white" role="status" aria-live="polite">
+        <CheckCircle2 className="h-5 w-5 shrink-0 text-white" aria-hidden="true" />
+        <span>Merci, votre inscription à la newsletter est confirmée.</span>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 sm:flex-row" aria-label="Inscription newsletter">
       <Input

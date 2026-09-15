@@ -102,7 +102,9 @@ export function QuoteModal({
         utm_campaign: params?.get("utm_campaign") || undefined,
       });
       if (res?.ok) {
-        toast.success("Demande envoyée ! Un conseiller vous rappelle sous 24h.");
+        toast.success("Merci, votre demande a bien été envoyée.", {
+          description: "Un conseiller NEOASSUR vous rappelle sous 24h.",
+        });
         onOpenChange(false);
         reset();
       } else {

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
+import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { submitQuoteRequest } from "@/lib/leads.functions";
@@ -37,6 +38,7 @@ export function InlineQuoteForm({
   cta?: string;
 }) {
   const submit = useServerFn(submitQuoteRequest);
+  const [submitted, setSubmitted] = React.useState(false);
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<Vals>({
     resolver: zodResolver(schema),
     defaultValues: { gdpr_consent: false as unknown as true },
@@ -63,7 +65,10 @@ export function InlineQuoteForm({
         referrer,
       });
       if (res?.ok) {
-        toast.success("Demande envoyée ! Un conseiller vous rappelle sous 24h.");
+        toast.success("Merci, votre demande a bien été envoyée.", {
+          description: "Un conseiller NEOASSUR vous rappelle sous 24h.",
+        });
+        setSubmitted(true);
         reset();
       } else toast.error(res?.error ?? "Une erreur est survenue.");
     } catch {
@@ -75,6 +80,20 @@ export function InlineQuoteForm({
     variant === "onPrimary"
       ? "bg-white/95 text-foreground placeholder:text-foreground/50 border-white/30"
       : "";
+
+  if (submitted) {
+    return (
+      <div className={`flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 text-center ${variant === "onPrimary" ? "border-white/20 bg-white/10 text-white" : "border-primary/20 bg-primary/5 text-foreground"}`} role="status" aria-live="polite">
+        <CheckCircle2 className={`h-10 w-10 ${variant === "onPrimary" ? "text-white" : "text-primary"}`} aria-hidden="true" />
+        <div>
+          <p className="text-lg font-semibold">Merci, votre demande a bien été envoyée.</p>
+          <p className={`mt-1 text-sm ${variant === "onPrimary" ? "text-white/80" : "text-muted-foreground"}`}>
+            Un conseiller NEOASSUR vous rappelle sous 24h.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-3 sm:grid-cols-2" aria-label="Demande de devis">
