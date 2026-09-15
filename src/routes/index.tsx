@@ -1144,7 +1144,16 @@ function Contact() {
             ))}
           </ul>
         </div>
-        <form onSubmit={onSubmit} className="rounded-2xl bg-brand-soft p-6 sm:p-8 shadow-sm">
+        {success && <div className="flex min-h-[420px] flex-col items-center justify-center rounded-2xl bg-brand-soft p-8 text-center shadow-sm">
+            <div className="grid size-16 place-items-center rounded-full bg-brand-blue/10 text-brand-blue">
+              <CheckCircle2 className="size-9" aria-hidden="true" />
+            </div>
+            <h3 className="mt-6 text-2xl font-bold text-brand-dark">Merci d&apos;avoir rempli le formulaire !</h3>
+            <p className="mt-3 max-w-md text-sm leading-6 text-foreground/70">
+              Votre demande a bien été envoyée. Un conseiller NEOASSUR vous recontactera rapidement, sous 24h.
+            </p>
+          </div>}
+        {!success && <form onSubmit={onSubmit} className="rounded-2xl bg-brand-soft p-6 sm:p-8 shadow-sm">
           <h3 className="text-lg font-bold tracking-wide text-brand-dark">CONTACTEZ-NOUS</h3>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input name="full_name" required aria-label="Nom" placeholder="Nom *" className={field} />
@@ -1189,7 +1198,6 @@ function Contact() {
             <textarea name="message" aria-label="Votre message" placeholder="Votre message" rows={4} className={`${field} sm:col-span-2`} />
           </div>
           {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-          {success && <p className="mt-4 text-sm text-green-700">Merci ! Votre demande a bien été envoyée. Nous vous rappelons rapidement.</p>}
           <button
             type="submit"
             disabled={loading}
@@ -1197,7 +1205,7 @@ function Contact() {
           >
             {loading ? "Envoi…" : "Envoyer ma demande"}
           </button>
-        </form>
+        </form>}
       </div>
     </section>
   );
