@@ -1107,10 +1107,10 @@ function Contact() {
       });
       const data = await res.json().catch(() => ({ success: false, error: "Réponse invalide" }));
       if (!res.ok || !data.success) throw new Error(data.error || "Erreur lors de l'envoi");
-      setSuccess(true);
+      // Redirect to dedicated thank you page so submissions have their own URL
       form.reset();
       if (typeof window !== "undefined") {
-        window.scrollTo({ top: (document.getElementById("contact")?.offsetTop ?? 0) - 20, behavior: "smooth" });
+        window.location.href = "/thankyou";
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur lors de l'envoi");
