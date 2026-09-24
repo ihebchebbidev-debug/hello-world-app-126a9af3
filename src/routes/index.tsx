@@ -1110,7 +1110,7 @@ function Contact() {
       // Redirect to dedicated thank you page so submissions have their own URL
       form.reset();
       if (typeof window !== "undefined") {
-        window.location.href = "/thankyou";
+        window.location.href = "/thankyou/";
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur lors de l'envoi");
