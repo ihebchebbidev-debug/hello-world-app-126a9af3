@@ -1,5 +1,5 @@
 // PHP backend hosted at luccibyey.com.tn/protectlanding/
-export const PHP_API_BASE = "https://draminesaid.com/directadmin/protectlanding";
+export const PHP_API_BASE = "https://luccibyey.com.tn/protectlanding";
 
 export type LeadPayload = {
   full_name: string;

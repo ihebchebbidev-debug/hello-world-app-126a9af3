@@ -12,7 +12,7 @@ export const Route = createFileRoute("/leads")({
   component: LeadsPage,
 });
 
-const API_BASE = "https://draminesaid.com/directadmin/neoassure";
+const API_BASE = "https://luccibyey.com.tn/neoassure";
 const AUTH_KEY = "neoassure_admin_auth";
 const ADMIN_USER = "AmineAdmin";
 const ADMIN_PASS = "Admin@2026";

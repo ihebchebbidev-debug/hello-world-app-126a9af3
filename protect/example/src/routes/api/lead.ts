@@ -20,7 +20,7 @@ const leadSchema = z.object({
   referrer: z.string().max(500).optional().nullable(),
 });
 
-const ENDPOINT = "https://draminesaid.com/directadmin/submit_form.php";
+const ENDPOINT = "https://luccibyey.com.tn/submit_form.php";
 
 export const Route = createFileRoute("/api/lead")({
   server: {

@@ -6,7 +6,7 @@ import { useRouterState } from "@tanstack/react-router";
  * Upload the `backend/*.php` files to this directory and run
  * `install_visitors.php` once to create the tables.
  */
-const TRACK_BASE = "https://draminesaid.com/directadmin/neoassure";
+const TRACK_BASE = "https://luccibyey.com.tn/neoassure";
 
 // Admin/utility routes we don't want to count as public traffic.
 const IGNORED_PREFIXES = ["/visitors", "/leads"];
