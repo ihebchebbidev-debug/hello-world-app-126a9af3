@@ -29,6 +29,9 @@ $coverage = $body['coverage_priorities'] ?? null;
 if (is_array($coverage)) $coverage = implode(', ', $coverage);
 $message = $body['message'] ?? null;
 $source_page = $body['source_page'] ?? null;
+if (is_string($source_page) && strlen($source_page) > 1024) {
+    $source_page = substr($source_page, 0, 1024);
+}
 $referrer = $body['referrer'] ?? ($_SERVER['HTTP_REFERER'] ?? null);
 $utm_source = $body['utm_source'] ?? null;
 $utm_medium = $body['utm_medium'] ?? null;

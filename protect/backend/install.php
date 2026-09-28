@@ -20,7 +20,7 @@ $sql = "CREATE TABLE IF NOT EXISTS leads (
     preferred_time VARCHAR(60) DEFAULT NULL,
     coverage_priorities TEXT DEFAULT NULL,
     message TEXT DEFAULT NULL,
-    source_page VARCHAR(255) DEFAULT NULL,
+    source_page TEXT DEFAULT NULL,
     referrer VARCHAR(500) DEFAULT NULL,
     utm_source VARCHAR(120) DEFAULT NULL,
     utm_medium VARCHAR(120) DEFAULT NULL,

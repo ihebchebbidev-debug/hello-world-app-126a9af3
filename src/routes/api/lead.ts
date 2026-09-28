@@ -16,7 +16,7 @@ const leadSchema = z.object({
   preferred_contact: z.string().max(20).optional().or(z.literal("")),
   preferred_time: z.string().max(50).optional().or(z.literal("")),
   message: z.string().max(2000).optional().or(z.literal("")),
-  source_page: z.string().max(500).optional().nullable(),
+  source_page: z.string().max(1024).optional().nullable(),
   referrer: z.string().max(500).optional().nullable(),
 });
 
