@@ -1,7 +1,18 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
-export default function ThankYou() {
+export const Route = createFileRoute("/thankyou")({
+  component: ThankYou,
+});
+
+function ThankYou() {
+  React.useEffect(() => {
+    // Fire Meta Pixel Lead event
+    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+      (window as any).fbq("track", "Lead");
+    }
+  }, []);
+
   return (
     <main className="mx-auto max-w-3xl px-4 py-20 text-center">
       <h1 className="text-3xl font-bold">Merci&nbsp;!</h1>
