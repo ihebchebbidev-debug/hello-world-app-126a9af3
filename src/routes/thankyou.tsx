@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { loadMetaPixel } from "@/components/CookieConsent";
 
 export const Route = createFileRoute("/thankyou")({
   component: ThankYou,
@@ -7,9 +8,32 @@ export const Route = createFileRoute("/thankyou")({
 
 function ThankYou() {
   React.useEffect(() => {
-    // Fire Meta Pixel Lead event
-    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-      (window as any).fbq("track", "Lead");
+    // Only fire Lead event if user has consented to cookies
+    const consent = localStorage.getItem("neo_cookie_consent");
+    if (consent !== "accepted") return;
+
+    // Ensure the pixel is loaded (might not be if user navigated directly)
+    loadMetaPixel();
+
+    // Wait for fbevents.js to fully load, then fire Lead
+    const fire = () => {
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead");
+      }
+    };
+
+    // If fbq is already available, fire immediately; otherwise poll briefly
+    if (typeof (window as any).fbq === "function") {
+      fire();
+    } else {
+      const interval = setInterval(() => {
+        if (typeof (window as any).fbq === "function") {
+          clearInterval(interval);
+          fire();
+        }
+      }, 100);
+      // Stop polling after 5 seconds
+      setTimeout(() => clearInterval(interval), 5000);
     }
   }, []);
 

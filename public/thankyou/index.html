@@ -9,8 +9,13 @@
     <!-- Meta Pixel — fires ONLY if cookie consent was accepted (GDPR) -->
     <script>
       (function(){
-        // Check if user accepted cookies (set by CookieConsent component)
-        var consent = localStorage.getItem('neo_cookie_consent');
+        // Check consent from localStorage or cookie
+        var consent = null;
+        try { consent = localStorage.getItem('neo_cookie_consent'); } catch(e) {}
+        if (!consent) {
+          var m = document.cookie.match('(^|;)\\s*neo_cookie_consent=([^;]+)');
+          consent = m ? m[2] : null;
+        }
         if (consent !== 'accepted') return;
 
         // Load Meta Pixel
