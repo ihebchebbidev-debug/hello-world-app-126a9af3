@@ -7,35 +7,19 @@ import { X, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
-import { Input, Textarea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
 import { submitQuoteRequest } from "@/lib/leads.functions";
 import { sendLeadToPhp } from "@/lib/php-api";
 
 const schema = z.object({
   insurance_type: z.string().min(2),
   full_name: z.string().trim().min(2, "Nom requis").max(120),
+  first_name: z.string().trim().min(2, "Prénom requis").max(120),
   email: z.string().trim().email("Email invalide"),
   phone: z.string().trim().min(6, "Téléphone requis").max(32),
-  age: z.string().optional(),
-  city: z.string().trim().max(80).optional(),
-  postal_code: z
-    .string()
-    .trim()
-    .max(5)
-    .optional()
-    .refine((v) => !v || /^[0-9]{4,5}$/.test(v), "Code postal invalide"),
-  age_bracket: z.string().optional(),
-  family_status: z.string().optional(),
-  current_insurer: z.string().trim().max(80).optional(),
-  budget_max: z.string().optional(),
-  preferred_contact: z.enum(["phone", "email", "sms", "whatsapp"]).optional(),
-  preferred_time: z.string().optional(),
-  coverage_priorities: z.array(z.string()).optional(),
-  message: z.string().trim().max(2000).optional(),
   gdpr_consent: z.literal(true, {
     errorMap: () => ({ message: "Veuillez accepter pour continuer" }),
   }),
-  marketing_consent: z.boolean().optional(),
 });
 type FormVals = z.infer<typeof schema>;
 
@@ -49,19 +33,17 @@ export function QuoteModal({
   defaultType?: string;
 }) {
   const submit = useServerFn(submitQuoteRequest);
-  const { register, handleSubmit, reset, watch, formState: { errors, isSubmitting } } = useForm<FormVals>({
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormVals>({
     resolver: zodResolver(schema),
-    defaultValues: { insurance_type: defaultType, coverage_priorities: [], gdpr_consent: false as unknown as true, marketing_consent: true },
+    defaultValues: { insurance_type: defaultType, gdpr_consent: false as unknown as true },
   });
 
   React.useEffect(() => {
-    if (open) reset({ insurance_type: defaultType, coverage_priorities: [], gdpr_consent: false as unknown as true, marketing_consent: true });
+    if (open) reset({ insurance_type: defaultType, gdpr_consent: false as unknown as true });
   }, [open, defaultType, reset]);
 
   const onSubmit = async (data: FormVals) => {
     try {
-      const ageNum = data.age && data.age.trim() !== "" ? Number(data.age) : undefined;
-      const budgetNum = data.budget_max && data.budget_max.trim() !== "" ? Number(data.budget_max) : undefined;
       const source_page =
         typeof window !== "undefined" ? window.location.pathname : undefined;
       const referrer =
@@ -69,32 +51,37 @@ export function QuoteModal({
       const params =
         typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
       const payload = {
-        ...data,
-        age: Number.isFinite(ageNum) ? (ageNum as number) : undefined,
-        budget_max: Number.isFinite(budgetNum) ? (budgetNum as number) : undefined,
+        insurance_type: data.insurance_type,
+        full_name: data.full_name,
+        email: data.email,
+        phone: data.phone,
+        city: "",
+        postal_code: "",
+        age_bracket: "",
+        family_status: "",
+        current_insurer: "",
+        message: "",
+        preferred_time: "",
         source_page,
         referrer,
         utm_source: params?.get("utm_source") || undefined,
         utm_medium: params?.get("utm_medium") || undefined,
         utm_campaign: params?.get("utm_campaign") || undefined,
+        gdpr_consent: true,
       };
       const res = await submit({ data: payload });
-      // Also push to external PHP backend (fire-and-forget)
       sendLeadToPhp({
         full_name: data.full_name,
+        vorname: data.first_name,
         phone: data.phone,
         email: data.email,
-        age: Number.isFinite(ageNum) ? (ageNum as number) : undefined,
-        marital_status: data.family_status,
-        city: data.city,
-        postal_code: data.postal_code,
+        city: "",
+        postal_code: "",
         insurance_type: data.insurance_type,
-        current_insurer: data.current_insurer,
-        budget_max: Number.isFinite(budgetNum) ? (budgetNum as number) : undefined,
-        preferred_contact: data.preferred_contact,
-        preferred_time: data.preferred_time,
-        coverage_priorities: data.coverage_priorities,
-        message: data.message,
+        current_insurer: "",
+        preferred_contact: "",
+        preferred_time: "",
+        message: "",
         source_page,
         referrer,
         utm_source: params?.get("utm_source") || undefined,
@@ -138,85 +125,13 @@ export function QuoteModal({
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-            <div>
-              <label className="text-xs font-medium text-foreground/70">Type d'assurance</label>
-              <select {...register("insurance_type")} className="mt-1 flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm">
-                <option>Mutuelle santé senior</option>
-                <option>Assurance emprunteur</option>
-                <option>Prévoyance & obsèques</option>
-                <option>Assurance dépendance</option>
-                <option>Autre</option>
-              </select>
-            </div>
+            <input type="hidden" {...register("insurance_type")} />
             <div className="grid grid-cols-2 gap-3">
-              <Input placeholder="Nom complet *" {...register("full_name")} aria-invalid={!!errors.full_name} />
-              <select {...register("age_bracket")} className="flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm">
-                <option value="">Tranche d'âge</option>
-                <option>- de 55 ans</option>
-                <option>55 - 59 ans</option>
-                <option>60 - 64 ans</option>
-                <option>65 - 69 ans</option>
-                <option>70 - 74 ans</option>
-                <option>75 - 79 ans</option>
-                <option>80 ans et +</option>
-              </select>
+              <Input placeholder="Nom *" {...register("full_name")} aria-invalid={!!errors.full_name} />
+              <Input placeholder="Prénom *" {...register("first_name")} aria-invalid={!!errors.first_name} />
             </div>
+            <Input placeholder="Téléphone *" type="tel" {...register("phone")} aria-invalid={!!errors.phone} />
             <Input placeholder="Email *" type="email" {...register("email")} aria-invalid={!!errors.email} />
-            <div className="grid grid-cols-2 gap-3">
-              <Input placeholder="Téléphone *" type="tel" {...register("phone")} aria-invalid={!!errors.phone} />
-              <Input placeholder="Code postal" inputMode="numeric" maxLength={5} {...register("postal_code")} aria-invalid={!!errors.postal_code} />
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <Input placeholder="Ville" {...register("city")} />
-              <select {...register("family_status")} className="flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm">
-                <option value="">Situation</option>
-                <option>Célibataire</option>
-                <option>En couple</option>
-                <option>Marié(e) / Pacsé(e)</option>
-                <option>Veuf(ve)</option>
-              </select>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <Input placeholder="Mutuelle actuelle (optionnel)" {...register("current_insurer")} />
-              <Input placeholder="Budget max / mois (€)" type="number" min={0} {...register("budget_max")} />
-            </div>
-
-            <div className="rounded-xl border border-input bg-muted/30 p-3">
-              <p className="text-xs font-medium text-foreground/70 mb-2">Vos priorités de couverture</p>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                {[
-                  "Hospitalisation",
-                  "Optique",
-                  "Dentaire",
-                  "Audioprothèse",
-                  "Médecines douces",
-                  "Spécialistes",
-                ].map((c) => (
-                  <label key={c} className="flex items-center gap-2">
-                    <input type="checkbox" value={c} {...register("coverage_priorities")} className="h-4 w-4 rounded border-input" />
-                    <span>{c}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <select {...register("preferred_contact")} className="flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm">
-                <option value="">Préférence de contact</option>
-                <option value="phone">Appel téléphonique</option>
-                <option value="email">Email</option>
-                <option value="sms">SMS</option>
-                <option value="whatsapp">WhatsApp</option>
-              </select>
-              <select {...register("preferred_time")} className="flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm">
-                <option value="">Créneau préféré</option>
-                <option>Matin (9h - 12h)</option>
-                <option>Midi (12h - 14h)</option>
-                <option>Après-midi (14h - 18h)</option>
-                <option>Soir (18h - 20h)</option>
-              </select>
-            </div>
-            <Textarea placeholder="Votre message (optionnel)" {...register("message")} />
 
             <label className="flex items-start gap-2 text-xs text-foreground/80">
               <input type="checkbox" {...register("gdpr_consent")} className="mt-0.5 h-4 w-4 rounded border-input" />
@@ -228,10 +143,6 @@ export function QuoteModal({
             {errors.gdpr_consent && (
               <p className="text-xs text-destructive">{errors.gdpr_consent.message as string}</p>
             )}
-            <label className="flex items-start gap-2 text-xs text-foreground/70">
-              <input type="checkbox" defaultChecked {...register("marketing_consent")} className="mt-0.5 h-4 w-4 rounded border-input" />
-              <span>Je souhaite recevoir des conseils et offres adaptés aux seniors par email.</span>
-            </label>
 
             <Button type="submit" variant="premium" size="lg" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? "Envoi…" : "Recevoir mon devis gratuit"}

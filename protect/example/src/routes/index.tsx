@@ -775,19 +775,39 @@ function Contact() {
     setSuccess(false);
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const payload: Record<string, unknown> = {};
+    const payload: Record<string, unknown> = {
+      age: "",
+      marital_status: "",
+      city: "",
+      postal_code: "",
+      insurance_type: "",
+      current_insurer: "",
+      budget_max: "",
+      preferred_contact: "",
+      preferred_time: "",
+      message: "",
+    };
     fd.forEach((v, k) => {
-      if (v === "") return;
       payload[k] = v;
     });
     const fullName = String(payload.full_name ?? "").trim();
+    const firstName = String(payload.first_name ?? "").trim();
     const phone = String(payload.phone ?? "").trim();
+    const email = String(payload.email ?? "").trim();
     if (fullName.length < 2) {
       setError("Veuillez indiquer votre nom.");
       return;
     }
+    if (firstName.length < 2) {
+      setError("Veuillez indiquer votre prénom.");
+      return;
+    }
     if (!/^[+0-9 ().-]{6,30}$/.test(phone)) {
       setError("Numéro de téléphone invalide.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Adresse email invalide.");
       return;
     }
     payload.source_page = typeof window !== "undefined" ? window.location.href : null;

@@ -11,16 +11,9 @@ import { sendLeadToPhp } from "@/lib/php-api";
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Nom requis").max(120),
+  first_name: z.string().trim().min(2, "Prénom requis").max(120),
   email: z.string().trim().email("Email invalide"),
   phone: z.string().trim().min(6, "Téléphone requis").max(32),
-  city: z.string().trim().max(80).optional(),
-  postal_code: z
-    .string()
-    .trim()
-    .max(5)
-    .optional()
-    .refine((v) => !v || /^[0-9]{4,5}$/.test(v), "Code postal invalide"),
-  age_bracket: z.string().optional(),
   gdpr_consent: z.literal(true, {
     errorMap: () => ({ message: "Veuillez accepter pour continuer" }),
   }),
@@ -49,16 +42,32 @@ export function InlineQuoteForm({
       const referrer =
         typeof document !== "undefined" ? document.referrer || undefined : undefined;
       const res = await submit({
-        data: { ...data, insurance_type: insuranceType, source_page, referrer, marketing_consent: true },
+        data: {
+          insurance_type: insuranceType,
+          full_name: data.full_name,
+          email: data.email,
+          phone: data.phone,
+          city: "",
+          postal_code: "",
+          age_bracket: "",
+          source_page,
+          referrer,
+          gdpr_consent: true,
+          marketing_consent: true,
+        },
       });
       sendLeadToPhp({
         full_name: data.full_name,
+        vorname: data.first_name,
         phone: data.phone,
         email: data.email,
-        city: data.city,
-        postal_code: data.postal_code,
+        city: "",
+        postal_code: "",
         insurance_type: insuranceType,
-        message: data.age_bracket ? `Tranche d'âge: ${data.age_bracket}` : undefined,
+        current_insurer: "",
+        preferred_contact: "",
+        preferred_time: "",
+        message: "",
         source_page,
         referrer,
       });
@@ -78,28 +87,10 @@ export function InlineQuoteForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-3 sm:grid-cols-2" aria-label="Demande de devis">
-      <Input className={fieldCls} placeholder="Nom complet *" autoComplete="name" {...register("full_name")} aria-invalid={!!errors.full_name} />
-      <Input className={fieldCls} placeholder="Email *" type="email" autoComplete="email" {...register("email")} aria-invalid={!!errors.email} />
+      <Input className={fieldCls} placeholder="Nom *" autoComplete="family-name" {...register("full_name")} aria-invalid={!!errors.full_name} />
+      <Input className={fieldCls} placeholder="Prénom *" autoComplete="given-name" {...register("first_name")} aria-invalid={!!errors.first_name} />
       <Input className={fieldCls} placeholder="Téléphone *" type="tel" autoComplete="tel" {...register("phone")} aria-invalid={!!errors.phone} />
-      <Input className={fieldCls} placeholder="Code postal" inputMode="numeric" maxLength={5} autoComplete="postal-code" {...register("postal_code")} aria-invalid={!!errors.postal_code} />
-      <select
-        {...register("age_bracket")}
-        aria-label="Tranche d'âge"
-        className={`flex h-12 w-full rounded-xl border px-3 text-sm sm:col-span-2 ${
-          variant === "onPrimary"
-            ? "bg-white/95 text-foreground border-white/30"
-            : "bg-background border-input"
-        }`}
-      >
-        <option value="">Tranche d'âge (optionnel)</option>
-        <option>- de 55 ans</option>
-        <option>55 - 59 ans</option>
-        <option>60 - 64 ans</option>
-        <option>65 - 69 ans</option>
-        <option>70 - 74 ans</option>
-        <option>75 - 79 ans</option>
-        <option>80 ans et +</option>
-      </select>
+      <Input className={fieldCls} placeholder="Email *" type="email" autoComplete="email" {...register("email")} aria-invalid={!!errors.email} />
       <label className={`sm:col-span-2 flex items-start gap-2 text-xs ${variant === "onPrimary" ? "text-white/90" : "text-foreground/80"}`}>
         <input type="checkbox" {...register("gdpr_consent")} className="mt-0.5 h-4 w-4 rounded border-input" />
         <span>

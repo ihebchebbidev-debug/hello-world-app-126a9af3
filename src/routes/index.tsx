@@ -9,6 +9,7 @@ import {
 import logo from "@/assets/logo.png";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
+import { LeadContactForm } from "@/components/LeadContactForm";
 import aboutCouple from "@/assets/about-couple.jpg";
 import aboutFamily from "@/assets/about-family.jpg";
 import serviceDevis from "@/assets/service-devis.jpg";
@@ -1071,57 +1072,6 @@ function CtaBanner() {
 }
 
 function Contact() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(null);
-    setSuccess(false);
-    const form = e.currentTarget;
-    const fd = new FormData(form);
-    const payload: Record<string, unknown> = {};
-    fd.forEach((v, k) => {
-      if (v === "") return;
-      payload[k] = v;
-    });
-    const fullName = String(payload.full_name ?? "").trim();
-    const phone = String(payload.phone ?? "").trim();
-    if (fullName.length < 2) {
-      setError("Veuillez indiquer votre nom.");
-      return;
-    }
-    if (!/^[+0-9 ().-]{6,30}$/.test(phone)) {
-      setError("Numéro de téléphone invalide.");
-      return;
-    }
-    payload.source_page = typeof window !== "undefined" ? window.location.href : null;
-    payload.referrer = typeof document !== "undefined" ? document.referrer : null;
-    setLoading(true);
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json().catch(() => ({ success: false, error: "Réponse invalide" }));
-      if (!res.ok || !data.success) throw new Error(data.error || "Erreur lors de l'envoi");
-      // Redirect to dedicated thank you page so submissions have their own URL
-      form.reset();
-      if (typeof window !== "undefined") {
-        window.location.href = "/thankyou/";
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur lors de l'envoi");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-
-  const field = "w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/30";
-
   return (
     <section id="contact" className="bg-white py-20">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2">
@@ -1144,60 +1094,7 @@ function Contact() {
             ))}
           </ul>
         </div>
-        <form onSubmit={onSubmit} className="rounded-2xl bg-brand-soft p-6 sm:p-8 shadow-sm">
-          <h3 className="text-lg font-bold tracking-wide text-brand-dark">CONTACTEZ-NOUS</h3>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <input name="full_name" required aria-label="Nom" placeholder="Nom *" className={field} />
-            <input name="first_name" aria-label="Prénom" placeholder="Prénom" className={field} />
-            <input name="phone" type="tel" required aria-label="Téléphone" placeholder="Téléphone *" className={field} />
-            <input name="email" type="email" aria-label="Email" placeholder="Email" className={field} />
-            <input name="age" type="number" min={18} max={120} aria-label="Âge" placeholder="Âge" className={field} />
-            <select name="marital_status" aria-label="Situation familiale" className={field} defaultValue="">
-              <option value="" disabled>Situation familiale</option>
-              <option>Célibataire</option>
-              <option>Marié(e)</option>
-              <option>Pacsé(e)</option>
-              <option>Divorcé(e)</option>
-              <option>Veuf(ve)</option>
-            </select>
-            <input name="city" aria-label="Ville" placeholder="Ville" className={field} />
-            <input name="postal_code" inputMode="numeric" aria-label="Code postal" placeholder="Code postal" className={field} />
-            <select name="insurance_type" aria-label="Type d'assurance souhaité" className={`${field} sm:col-span-2`} defaultValue="">
-              <option value="" disabled>Type d'assurance souhaité</option>
-              <option>Mutuelle santé</option>
-              <option>Mutuelle senior</option>
-              <option>Assurance emprunteur</option>
-              <option>Prévoyance</option>
-              <option>Obsèques</option>
-              <option>TNS / Indépendant</option>
-              <option>Autre</option>
-            </select>
-            <input name="current_insurer" aria-label="Assureur actuel" placeholder="Assureur actuel" className={field} />
-            <input name="budget_max" type="number" step="0.01" aria-label="Budget mensuel maximum en euros" placeholder="Budget mensuel max (€)" className={field} />
-            <select name="preferred_contact" aria-label="Contact préféré" className={field} defaultValue="">
-              <option value="" disabled>Contact préféré</option>
-              <option value="phone">Téléphone</option>
-              <option value="email">Email</option>
-              <option value="sms">SMS</option>
-            </select>
-            <select name="preferred_time" aria-label="Moment idéal pour être contacté" className={field} defaultValue="">
-              <option value="" disabled>Moment idéal</option>
-              <option>Matin (9h-12h)</option>
-              <option>Après-midi (12h-17h)</option>
-              <option>Soir (17h-19h)</option>
-            </select>
-            <textarea name="message" aria-label="Votre message" placeholder="Votre message" rows={4} className={`${field} sm:col-span-2`} />
-          </div>
-          {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-          {success && <p className="mt-4 text-sm text-green-700">Merci ! Votre demande a bien été envoyée. Nous vous rappelons rapidement.</p>}
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-6 rounded-md bg-brand-red px-8 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 disabled:opacity-60"
-          >
-            {loading ? "Envoi…" : "Envoyer ma demande"}
-          </button>
-        </form>
+        <LeadContactForm />
       </div>
     </section>
   );

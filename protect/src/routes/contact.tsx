@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
-import { Input, Textarea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
 import { SITE } from "@/lib/utils";
 import { submitCallbackRequest } from "@/lib/leads.functions";
 import { sendLeadToPhp } from "@/lib/php-api";
@@ -29,10 +29,9 @@ export const Route = createFileRoute("/contact")({
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Nom requis").max(120),
+  first_name: z.string().trim().min(2, "Prénom requis").max(120),
   phone: z.string().trim().min(6, "Téléphone requis").max(32),
-  email: z.string().trim().email("Email invalide").optional().or(z.literal("")),
-  preferred_time: z.string().trim().max(80).optional(),
-  message: z.string().trim().max(2000).optional(),
+  email: z.string().trim().email("Email invalide"),
   gdpr_consent: z.literal(true, { errorMap: () => ({ message: "Veuillez accepter pour continuer" }) }),
 });
 type Vals = z.infer<typeof schema>;
@@ -47,23 +46,25 @@ function ContactPage() {
     try {
       const source_page = typeof window !== "undefined" ? window.location.pathname : undefined;
       const referrer = typeof document !== "undefined" ? document.referrer || undefined : undefined;
-      const cleanEmail = data.email && data.email.trim() !== "" ? data.email : undefined;
       const res = await submit({
         data: {
           full_name: data.full_name,
           phone: data.phone,
-          email: cleanEmail,
-          preferred_time: data.preferred_time,
+          email: data.email,
+          preferred_time: "",
           source_page,
           gdpr_consent: true,
         },
       });
       sendLeadToPhp({
         full_name: data.full_name,
+        vorname: data.first_name,
         phone: data.phone,
-        email: cleanEmail,
-        preferred_time: data.preferred_time,
-        message: data.message,
+        email: data.email,
+        city: "",
+        postal_code: "",
+        preferred_time: "",
+        message: "",
         insurance_type: "Demande de rappel",
         source_page,
         referrer,
@@ -115,11 +116,10 @@ function ContactPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="rounded-3xl border bg-card p-8 shadow-elegant space-y-4 h-fit">
             <h2 className="text-2xl font-bold">Être rappelé gratuitement</h2>
             <p className="text-sm text-foreground/70">Laissez vos coordonnées, un conseiller vous rappelle quand vous le souhaitez.</p>
-            <Input placeholder="Nom complet *" {...register("full_name")} aria-invalid={!!errors.full_name} />
+            <Input placeholder="Nom *" {...register("full_name")} aria-invalid={!!errors.full_name} />
+            <Input placeholder="Prénom *" {...register("first_name")} aria-invalid={!!errors.first_name} />
             <Input placeholder="Téléphone *" type="tel" {...register("phone")} aria-invalid={!!errors.phone} />
-            <Input placeholder="Email (optionnel)" type="email" {...register("email")} aria-invalid={!!errors.email} />
-            <Input placeholder="Créneau préféré (ex: demain matin)" {...register("preferred_time")} />
-            <Textarea placeholder="Votre message (optionnel)" {...register("message")} />
+            <Input placeholder="Email *" type="email" {...register("email")} aria-invalid={!!errors.email} />
             <label className="flex items-start gap-2 text-xs text-foreground/80">
               <input type="checkbox" {...register("gdpr_consent")} className="mt-0.5 h-4 w-4 rounded border-input" />
               <span>

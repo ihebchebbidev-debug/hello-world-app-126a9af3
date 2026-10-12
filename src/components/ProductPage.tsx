@@ -8,6 +8,7 @@ import type { LucideIcon } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
+import { LeadContactForm } from "@/components/LeadContactForm";
 import { buildBreadcrumbLd, toAbsoluteUrl } from "@/lib/site-url";
 import logo from "@/assets/logo.png";
 
@@ -288,14 +289,13 @@ export function ProductPage({ data }: { data: ProductPageData }) {
               </h1>
               <p className="mt-4 max-w-lg text-base text-foreground/70">{data.subtitle}</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
-                  to="/"
-                  hash="contact"
+                <a
+                  href="#contact"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-red/20 transition hover:brightness-110"
                 >
                   Devis gratuit en 2 min
                   <ChevronRight className="size-4" />
-                </Link>
+                </a>
                 <a
                   href="tel:+33187665610"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-dark/15 bg-white px-6 py-3.5 text-sm font-semibold text-brand-dark transition hover:border-brand-blue hover:text-brand-blue"
@@ -438,7 +438,7 @@ export function ProductPage({ data }: { data: ProductPageData }) {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA + form */}
         <section className="cta-gradient">
           <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-14 text-center text-white">
             <h2 className="text-2xl font-bold sm:text-3xl">Recevez votre devis personnalisé gratuitement</h2>
@@ -446,14 +446,13 @@ export function ProductPage({ data }: { data: ProductPageData }) {
               Un conseiller vous rappelle sous 24h, sans engagement. Données 100% confidentielles.
             </p>
             <div className="flex flex-col items-stretch gap-3 sm:flex-row">
-              <Link
-                to="/"
-                hash="contact"
+              <a
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold text-brand-navy shadow"
               >
                 Recevoir mon devis gratuit
                 <ChevronRight className="size-4 text-brand-blue" />
-              </Link>
+              </a>
               <a href="tel:+33187665610" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
                 <Phone className="size-4" />
                 01 87 66 56 10
@@ -461,10 +460,21 @@ export function ProductPage({ data }: { data: ProductPageData }) {
             </div>
           </div>
         </section>
+        <section id="contact" className="bg-white py-16">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold text-brand-dark sm:text-3xl">Demandez votre devis gratuit</h2>
+              <p className="mt-3 text-sm text-foreground/70">
+                Remplissez le formulaire, un expert vous rappelle rapidement et gratuitement.
+              </p>
+            </div>
+            <LeadContactForm />
+          </div>
+        </section>
       </main>
       <Footer />
-      <StickyMobileCTA quoteHref="/#contact" />
-      <ExitIntentPopup quoteHref="/#contact" />
+      <StickyMobileCTA quoteHref="#contact" />
+      <ExitIntentPopup quoteHref="#contact" />
     </div>
   );
 }
