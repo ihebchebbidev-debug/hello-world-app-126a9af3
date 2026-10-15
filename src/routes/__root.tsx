@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { VisitorTracker } from "../lib/visitor-tracking";
 import { CookieConsent } from "../components/CookieConsent";
+import { initAttribution } from "../lib/attribution";
+import { setupClickToCallTracking } from "../lib/meta-pixel";
 
 function NotFoundComponent() {
   return (
@@ -86,13 +88,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "NEOASSUR, courtier en assurance : mutuelle santé, complémentaire, assurance emprunteur (loi Lemoine) et prévoyance obsèques. Comparez +25 assureurs, économisez jusqu'à 40%. Devis gratuit en 2 min.",
       },
 
-
       { name: "author", content: "NEOASSUR" },
       { name: "publisher", content: "NEOASSUR" },
       { name: "theme-color", content: "#2481B1" },
       { name: "format-detection", content: "telephone=yes" },
       { name: "referrer", content: "strict-origin-when-cross-origin" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "rating", content: "general" },
       { httpEquiv: "content-language", content: "fr-FR" },
@@ -152,6 +156,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    initAttribution();
+    setupClickToCallTracking();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

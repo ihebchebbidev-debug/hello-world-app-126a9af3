@@ -25,11 +25,16 @@ $sql = "CREATE TABLE IF NOT EXISTS leads_neoassure (
     utm_source VARCHAR(120) DEFAULT NULL,
     utm_medium VARCHAR(120) DEFAULT NULL,
     utm_campaign VARCHAR(120) DEFAULT NULL,
+    utm_content VARCHAR(150) DEFAULT NULL,
+    utm_term VARCHAR(150) DEFAULT NULL,
+    fbclid VARCHAR(255) DEFAULT NULL,
+    event_id VARCHAR(100) DEFAULT NULL,
     ip_address VARCHAR(64) DEFAULT NULL,
     user_agent VARCHAR(500) DEFAULT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_created (created_at),
-    INDEX idx_phone (phone)
+    INDEX idx_phone (phone),
+    INDEX idx_event (event_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
 
 try {
